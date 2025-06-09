@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="imag/icon.webp">
+    <title>otasora.website</title>
+
+    <meta property="og:title" content="otasorawebsite" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="otasora.website" />
+    <meta
+      property="og:description"
+      content="otasora.website"
+    />
+    <meta
+      property="og:image"
+      content="imag/ogp.png"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    
+   
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+  <div class="container show-menu">
+    <!-- ハンバーガーメニュー -->
+<button id="hamburger" class="hamburger">
+  
+</button>
+
+<!-- スマホ用のメニュー -->
+<div id="mobile-menu" class="mobile-menu">
+  <div class="menu-item" onclick="showCategory('work')">work</div>
+  <div class="menu-item" onclick="showCategory('about')">about</div>
+  <div class="menu-item" onclick="showCategory('link_list')">link_list</div>
+  <div class="menu-item" onclick="showCategory('contact')">contact</div>
+</div>
+
+    <div class="panel left" id="menu">
+        <div class="otasora"><a href="index.html">otasora.website</a></div>
+        <div class="menu-items">
+      <div class="menu-item" onclick="showCategory('work')">work</div>
+      <div class="menu-item" onclick="showCategory('about')">about</div>
+      <div class="menu-item" onclick="showCategory('link_list')">link_list</div>
+      <div class="menu-item" onclick="showCategory('contact')">contact</div>
+     </div>
+
+
+    </div>
+    <div class="panel center" id="content-list">
+      <!-- 中央コンテンツ -->
+    </div>
+    <div class="panel right" id="details">
+      <div id="preview-item">
+       <img id="preview-img" style="width: 100%; height: 100%;" />
+       </div>
+      <div id="detail-item"></div>
+
+    </div>
+  </div>
+  <div id="history-bar"></div>
+
+  <script src="script.js"></script>
+</body>
+
+
+
+</html>
+

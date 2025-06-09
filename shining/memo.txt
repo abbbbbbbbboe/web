@@ -1,0 +1,44 @@
+// box-shadow　透明度無し
+document.addEventListener("mousemove", (e) => {
+  const box = document.querySelector(".contents");
+  const rect = box.getBoundingClientRect();
+
+  // boxの中心の座標を取得
+  const boxCenterX = rect.left + rect.width / 2;
+  const boxCenterY = rect.top + rect.height / 2;
+
+  // カーソルとboxの中心の距離を計算
+  const offsetX = e.clientX - boxCenterX;
+  const offsetY = e.clientY - boxCenterY;
+
+  // 距離を基にシャドウのオフセットを計算
+  const shadowOffsetX = -offsetX * 0.1;
+  const shadowOffsetY = -offsetY * 0.1;
+
+  // カーソルが要素から離れるほどボカシ半径を大きくする
+  const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+  const maxDistance = Math.max(window.innerWidth, window.innerHeight); // 最大距離（画面サイズ）
+  const maxBlur = 200; // 最大のぼかし半径
+  const minBlur = 0; // 最小のぼかし半径
+
+  // 最大距離に基づいてボカシ半径を調整
+  const blur = Math.min(maxBlur, minBlur + (maxBlur - minBlur) * (distance / maxDistance));
+
+  box.style.boxShadow = `${shadowOffsetX}px ${shadowOffsetY}px ${blur}px #b6bcff5d`;
+});
+
+
+css
+カーソル二人展バージョン
+.custom-cursor {
+    width: 120px;
+    height: 20px;
+    position: absolute;
+    pointer-events: none;
+    background: url('image/cursor5-2.gif') no-repeat center center;
+    background-size: 100% 100%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    /* left: 300px; */
+    /* top:300px; */
+  }

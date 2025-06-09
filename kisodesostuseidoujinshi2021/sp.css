@@ -1,0 +1,33 @@
+*{
+/*   padding:0;
+  margin:0; */
+}
+.all{
+  display:none;
+}
+body{
+  height:100vh;
+  width: calc(100vw-40px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items:center;
+  background:url(image/sumahogamen.gif)  ;
+ background-size:30px;
+  overflow:hidden;
+  padding:0 20px;
+}
+.t:before{
+  
+  content:'基礎デザイン学科卒業制作同人アーカイブサイト\APC以外は対応しておりません。\APCでご覧ください！';
+  display: table-cell;
+  width: 9999px;
+  padding: 13px 0;
+  text-align: center;
+  line-height: 1.62;
+  border: 0.1px solid #01ffff;
+  white-space: pre;
+  font-size: 13px;
+  background-color:#ffffff;
+  margin:0px 20px 100px 20px;
+  
+}

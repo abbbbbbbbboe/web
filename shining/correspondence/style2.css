@@ -1,0 +1,404 @@
+body {
+  background-color: #fafcfd;
+  margin: 0; /* 追加: マージンをリセット */
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  cursor: none;
+  overflow-y: hidden;
+}
+
+
+
+html, body {
+  cursor: none; /* Safariでもカーソルが消えるように */
+}
+
+p {
+  color: #0064ff;
+  
+  font-size: 18px;
+  line-height: 35px;
+}
+
+p::selection {
+  color: #fff;
+  background: #0064ff;
+}
+
+li {
+  color: #0064ff;
+  
+}
+
+li::selection {
+  color: #fff;
+  background: #0064ff;
+}
+
+a {
+  color: #0064ff;
+  text-decoration: none;
+  
+  letter-spacing: 1px;
+}
+
+a::selection {
+  color: #fff;
+  background: #0064ff;
+}
+
+hr {
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #0064ff;
+}
+
+body, p, a, li {
+  -webkit-font-smoothing: antialiased; /* Safariフォントスムージング */
+  font-family: "Noto Sans JP", system-ui;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
+}
+
+.all {
+  display: -webkit-flex; /* Safari用 */
+  display: flex;
+  justify-content: center; /* 水平方向の中央揃え */
+  align-items: center;     /* 垂直方向の中央揃え */
+  height: 100dvh;
+  flex-direction: column;  /* 子要素を縦並びにする */
+}
+
+.custom-cursor {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  pointer-events: none;
+  background: url('../image/cursor7-3.gif') no-repeat center center;
+  background-size: 100% 100%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.title {
+  width: 450px;
+  position: absolute;
+  z-index: 10; 
+  margin-top: -220px;
+}
+
+.hover-container {
+  position: relative;
+  width: 450px;
+  height: 600px;
+  background-color: #ffffff99;
+}
+
+.hover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: opacity 0.3s ease;
+  z-index: 9; 
+}
+
+.hover-container:hover .hover-image {
+  opacity: 0;
+  pointer-events: none; /* 画像に対してのクリックやホバーを無効化 */
+}
+
+.contents {
+  position: relative;
+  width: 450px;
+  height: 600px;
+  border: solid 1px #0064ff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* Safariでのスムーズスクロール */
+  cursor: auto;
+  box-shadow: 10px 5px 30px #e0e2ff41;
+  transition: box-shadow 0.01s ease-out;
+  background-image: url(../image/hoshi5.gif);
+  background-size: cover; /* Safari用に修正 */
+  background-color: #ffffff59;
+}
+
+.white {
+  position: relative; /* 必須 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-color: #ffffff5d;
+  z-index: 0;
+  transform: translateZ(0); /* ハードウェアアクセラレーションを有効化 */
+  will-change: transform; /* 変更予定のプロパティを指定 */
+}
+
+#background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../image/hoshi5.gif'); /* あなたの画像に変更してください */
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  -webkit-filter: blur(3px); /* Safari用 */
+  filter: blur(3px);
+  transition: -webkit-filter 0.5s ease; /* Safari用 */
+  transition: filter 0.5s ease;
+  opacity: 0.4; /* 背景画像の透明度を設定 */
+}
+
+.corr {
+  position: absolute;
+  z-index: 8; 
+  margin-left: 56px;
+  margin-top: 20px;
+  top: 0px; 
+  left: 0px;
+  backface-visibility: hidden; /* Safariの描画安定化 */
+}
+
+.corrimg{
+  width: 300px;
+  border: solid 1px #0064ff;
+  margin-left: 10px;
+}
+
+.bo {
+  margin-top: 17px;
+}
+
+.mailtaitl {
+  font-size: 18px;
+  
+}
+
+.bo p {
+  margin-bottom: 0;
+}
+
+.openPopup {
+  width: 340px;
+}
+
+.back {
+  background-color: rgba(255, 255, 255, 0.689);
+  border: solid 1px #0064ff;
+  color: #0064ff;
+  padding: 2px 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  width: 100px;
+  margin: 15px 2px 50px 0;
+  text-align: center;
+}
+
+.back:hover {
+  color: #fff;
+  background-color: #0064ff;
+}
+
+.back:hover a {
+  color: #fff;
+  background-color: #0064ff;
+}
+
+.popup {
+  display: none; /* 初期状態では非表示 */
+  position: fixed;
+  z-index: 6;
+  left: 2px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f3f68f;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border: solid 1px #0064ff;
+  width: 350px;
+  height: 500px;
+  text-align: start;
+  overflow-y: scroll; /* 縦方向にスクロール可能に */
+  overflow-x: hidden;
+  margin: 0;
+  position: absolute;
+}
+
+.popup-content p {
+  margin-top: 10px;
+  width: 330px;
+  margin-left: 10px;
+}
+
+.popup-content button{
+  margin-left: 10px;
+}
+
+.honbun {
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.honbun p {
+ 
+  line-height: 35px;
+  margin-bottom: 10px;
+}
+
+.honbun a {
+  margin-top: 300px;
+  padding: 5px 10px;
+}
+
+.close {
+  color: #0064ff;
+  float: right;
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: -13px;
+  position: sticky;
+  top: 3px;
+  display: block;
+}
+
+.close:hover,
+.close:focus {
+  color: #708ce0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: #fff;
+  border: solid 1px #0064ff;
+  color: #0064ff;
+  padding: 2px 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+ 
+}
+
+button:hover {
+  color: #fff;
+  background-color: #0064ff;
+}
+
+button::selection {
+  color: #fff;
+  background: #0064ff;
+}
+
+.link {
+  margin-top: 10px;
+}
+
+.link a {
+  border: solid 1px #0064ff;
+}
+
+.link a:hover {
+  color: #fff;
+  background-color: #0064ff;
+}
+
+@media screen and (max-width: 1024px) {
+  .hover-image {
+      display: none;
+  }
+  .custom-cursor {
+      display: none;
+  }
+  .contents {
+      background-image: url(../image/hoshi3-2.png);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body{
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  p {
+      font-size: 16px;
+      line-height: 25px;
+  }
+  a {
+      font-size: 16px;
+  }
+  .title {
+      width: 360px;
+      margin-top: -177px;
+  }
+  .hover-image {
+      display: none;
+  }
+  .custom-cursor {
+      display: none;
+      background: none;
+  }
+  .hover-container {
+      width: 360px;
+      height: 480px;
+  }
+  .contents {
+      width: 360px;
+      height: 480px;
+      background-image: url(../image/hoshi3-2.png);
+  }
+  .corr {
+      margin-left: 30px;
+      margin-top: 20px;
+  }
+
+  .corrimg{
+    width: 230px;
+
+  }
+
+  .openPopup {
+      width: 300px;
+  }
+  .bo {
+      margin-left: 1px;
+  }
+  button {
+      font-size: 15px;
+
+  }
+  .popup-content {
+      width: 250px;
+      height: 400px;
+  }
+  .popup-content p {
+    margin-top: 10px;
+    width: 230px;
+    margin-left: 10px;
+  }
+  .back a {
+      font-size: 15px;
+  }
+  .back {
+      padding: 3px 10px;
+      height: 20px;
+      line-height: 17px;
+      margin-left: 2px;
+  }
+}

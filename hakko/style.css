@@ -1,0 +1,270 @@
+body{
+  height: 100vh;
+  background-image: url(./bg2.png);
+  background-repeat: repeat;
+  background-size:5px;
+  cursor: url(./cursor3.png), auto;
+  width:auto;
+   background-attachment: fixed;
+  margin:0;
+  
+  
+    
+}
+
+
+/*  <div class="">の""内で指定した名前に.を頭につけて使う（classの場合）*/
+header{
+    width: 100vw;
+ margin-top:0px;
+ margin-left: 0px;
+  text-decoration: none;
+  display: flex;
+}
+
+.atama{
+  margin-top:30px;
+}
+
+header a{
+   color:#2d5ae0;
+    height: 20px;
+    width: 300px;
+   margin: 10px 0px 0 10px;
+   text-decoration-line: underline ;
+  text-decoration-style:dotted;
+   text-decoration-color:#2d5ae0;
+  text-decoration-thickness:2px;
+  -webkit-text-decoration: underline dotted 2px #2d5ae0;
+   font-size:20px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  background-color: white;
+  border:none;
+  
+}
+header p{
+    font-size:12px;
+font-family: 'BIZ UDMincho', serif;
+margin-top: -3px;
+margin-left: 19px;
+color: #2d5ae0;
+transform: scale(1, 0.8);
+}
+/*  */
+.cssbutton{
+  
+  width:100px;
+  height:20px;
+  position: fixed;
+ top:44px;
+ 
+  right:0;
+}
+
+#setButton1{
+  background-color: #2d5ae0;
+  width:10px;
+  height:8px;
+  border: none;
+  margin-left: 4px ;
+  cursor: url(./link2.png),auto;
+  padding: 5px 10px;
+  text-decoration: none;
+  
+  
+}
+#setButton2{
+  background-color: #707070;
+  width:10px;
+  height:8px;
+  border: none;
+  margin-left: 4px;
+  cursor: url(./link1.png),auto;
+  padding: 5px 10px;
+  text-decoration: none;
+ 
+}
+
+#setButton3{
+  background-color: #dd6d00;
+  width:10px;
+  height:8px;
+  border: none;
+  margin-left: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+  text-decoration: none;
+ 
+}
+
+.sub{
+  margin-top: 5px;
+}
+.sub a{
+    font-size:12px;
+font-family: 'BIZ UDMincho', serif;
+margin-top: -3px;
+margin-left: 0;
+color:  #2d5ae0;
+transform: scale(1, 0.8);
+text-decoration: none;
+  border:none;
+}
+
+.main{
+
+font-family: 'BIZ UDMincho', serif;
+width:auto;
+ height: auto;
+  margin-left:20px;
+}
+.text{
+  width:auto;
+}
+
+.text p{
+ color: #2d5ae0;
+ font-size:20px;
+ margin: 250px 21px 400px 21px;
+ width:90vw;
+ height: auto;
+ 
+ letter-spacing: 1px;
+ line-height: 40px;
+
+}
+
+.text p:hover{
+    color:#00ffff;
+}
+
+.text a{
+  text-decoration: none;
+ color: #2d5ae0;
+ font-size:20px;
+ 
+ width:90vw;
+ height: auto;
+
+ letter-spacing: 1px;
+ line-height: 40px;
+  
+}
+.text a:hover{
+    color:#00ffff;
+}
+
+.text hr{
+    border-top: 2px dotted #2d5ae0;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    margin:23px;
+    padding-bottom: 100px;
+    padding-top:-100px;
+  }
+
+  
+
+  footer{
+    height: 80px;
+    margin: 30px 0px;
+  }
+
+  footer a{
+    color: #2d5ae0;
+    font-size:15px;
+    margin: 30px 21px;
+    margin-bottom: 50px;
+    width:auto;
+    height: auto;
+    width: fit-content;
+    letter-spacing: 1px;
+    line-height: 40px;
+    text-decoration: none;
+  }
+  footer a:hover{
+    color:#fff;
+    background-color:  #00ffff;
+  }
+
+  footer hr{
+   border-top: 2px double #2d5ae0;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    margin:23px;
+   
+  }
+
+
+  @media screen and (max-width: 959px) {
+	/* 959px以下に適用されるCSS（タブレット用） */
+    
+    .cssbutton{
+  
+  width:100px;
+  height:20px;
+  position: fixed;
+ top:25px;
+ 
+  right:0;
+ 
+}
+
+    .text p{
+        color: #2d5ae0;
+        font-size:16px;
+        margin: 250px 21px 400px 21px;
+        width:auto;
+        height: auto;
+        width: fit-content;
+        letter-spacing: 0.8px;
+        line-height: 40px;
+       
+       }
+    
+    .text a{
+ 
+ color: #2d5ae0;
+        font-size:16px;
+       
+        width:auto;
+        height: auto;
+        width: fit-content;
+        letter-spacing: 0.8px;
+        line-height: 40px;
+       
+ 
+  
+}
+    
+    header a{
+    color: #2d5ae0;
+    height: 20px;
+    width: 300px;
+   margin: 10px 0px 0 10px;
+      text-decoration: underline dotted 2px #2d5ae0 ;
+  
+  -webkit-text-decoration: underline dotted 2px  #2d5ae0 ;
+   font-size:18px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  background-color: white;
+      
+  
+}
+    
+    .sub a{
+    font-size:12px;
+font-family: 'BIZ UDMincho', serif;
+margin-top: -8px;
+margin-left: 0;
+color:  #2d5ae0;
+transform: scale(1, 0.8);
+text-decoration: none;
+}
+}

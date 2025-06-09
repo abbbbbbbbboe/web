@@ -1,0 +1,556 @@
+body {
+    background-color: #fafcfd;
+    margin: 0; /* 追加: マージンをリセット */
+    position: relative;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+  justify-content: center;
+  cursor: none;
+  overflow: hidden;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.noto-sans-jp-<uniquifier> {
+  font-family: "Noto Sans JP", system-ui;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+
+.inter-<uniquifier> {
+  font-family: "Inter", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p{
+    color: #0064ff;
+    /* text-shadow: #fff 1px 0 3px; */
+    
+    
+}
+p::selection{
+    color: #fff;
+    background: #0064ff;
+  }
+
+li{
+    color: #0064ff;
+    
+}
+li::selection{
+    color: #fff;
+    background: #0064ff;
+  }
+a{
+    color: #0064ff;
+    text-decoration: none;
+    
+    letter-spacing: 1px;
+}
+a::selection{
+    color: #fff;
+    background: #0064ff;
+  }
+
+hr{
+    border-width: 1px 0 0 0;
+	border-style: solid;
+	border-color: #0064ff;
+}
+
+body, p, a, li {
+  -webkit-font-smoothing: antialiased; /* Safariフォントスムージング */
+  font-family: "Noto Sans JP", system-ui;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
+}
+
+
+
+.all {
+  display: flex;
+  justify-content: center; /* 水平方向の中央揃え */
+  align-items: center;     /* 垂直方向の中央揃え */
+  height: 100dvh;  
+  flex-direction: column;  /* 子要素を縦並びにする */
+}
+
+.custom-cursor {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  pointer-events: none;
+  background: url('image/cursor7-3.gif') no-repeat center center;
+  background-size: 100% 100%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); /* Safari対応 */
+  z-index: 9999;
+}
+
+
+.title {
+    width: 450px;
+    position: absolute;
+    z-index: 10; 
+    margin-top: -220px;
+}
+
+.hover-container {
+  position: relative;
+  width: 450px;
+  height: 600px;
+  background-color: #ffffff99;
+}
+
+.hover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  z-index: 5; 
+}
+
+.hover-container:hover .hover-image {
+  opacity: 0;
+  pointer-events: none; /* 画像に対してのクリックやホバーを無効化 */
+}
+
+.contents {
+  position: relative;
+  width: 450px;
+  height: 600px;
+  border: solid 1px #0064ff;
+  overflow-y: hidden;
+  cursor: auto;
+  box-shadow: 10px 5px 30px #e0e2ff41;
+  transition: box-shadow 0.01s ease-out;
+  background-image: url(image/hoshi5.gif);
+  background-size: 100%;
+  -webkit-background-size: 100%; /* Safari対応 */
+  background-color: #ffffff59;
+  margin: 0;
+}
+
+
+.white{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url(image/hoshi5.gif); */
+  background-size: 100%;
+  background-color: #ffffff5d;
+  /* opacity: 30; 透明度を設定 */
+  z-index: 0; /* 背景画像をテキストの後ろに配置 */
+}
+
+#background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('image/hoshi5.gif'); /* あなたの画像に変更してください */
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(3px); /* 初期のブラー効果 */
+  backdrop-filter: blur(3px); /* Safari用 */
+  transition: filter 0.5s ease;
+  opacity: 0.4; /* 背景画像の透明度を設定 */
+}
+
+
+  
+
+
+.info {
+  position: absolute;
+  z-index: 3; 
+}
+
+
+
+.day{
+    margin: 36px 0 0 260px  ;
+    
+}
+
+.day p{
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.day ul{
+    list-style: none;
+    margin:  0;
+    margin-top: 10px;
+    /* margin-left: 26px; */
+    padding: 0; 
+    font-size:  18px;
+}
+
+.place{
+    margin: 85px 0 0 20px;
+    font-size: 18px;
+}
+
+.place p{
+  margin:0;
+}
+
+.haishin{
+  margin: 4px 0 0 250px;
+  font-size: 18px;
+}
+
+.text{
+    margin: 50px 0 0 20px;
+}
+
+.correspondence{
+    margin: 100px 0 0 300px;
+}
+
+.hutariten p{
+    font-size: 18px;
+    
+    margin: 5px 0 0 20px;
+}
+.mapmark{
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+.mapdec{
+    margin:auto;
+    margin-top: 20px;
+    width: 300px;
+    height: 400px;
+    border:solid 1px #0064ff;
+}
+
+#map-frame {
+  width: 300px;
+  height: 400px;
+}
+
+.popup {
+    display: none; /* 初期状態では非表示 */
+    position: fixed;
+    z-index: 1; /* 上に重ねる */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:  #f1f3f68f; /* 背景の薄暗さ */
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 25px; */
+    font-size:18px;
+  }
+  
+  /* ポップアップの内容 */
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border: solid 1px #0064ff;
+    width: 350px;
+    height: 500px;
+    text-align: start;
+    overflow-y: scroll; /* 縦方向にスクロール可能に */
+    overflow-x: hidden; /* 横方向のスクロールを隠す */
+    margin: 0;
+    /* margin-top: -15px; */
+    
+  }
+
+  .popup-content p{
+   
+   
+  }
+
+  .popup-content-text p{
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  .midashi{
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .honbun{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:300px;
+    margin-left: 25px;
+  }
+
+  .honbun p{
+    
+    line-height:35px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+
+ 
+
+  .honbun img{
+    width: 298px;
+    border: solid 1px #0064ff;
+    margin-bottom: 15px;
+  }
+
+  
+  /* 閉じるボタン */
+  .close {
+    color: #0064ff;
+    float: right;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: -53px;
+    position: sticky;
+    top: 3px;
+    display: block;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #708ce0;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  button {
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px #0064ff;
+    color: #0064ff;
+    padding: 2px 10px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  button:hover {
+    color: #fff;
+    background-color: #0064ff;
+  }
+
+  button::selection{
+    color: #fff;
+    background: #0064ff;
+  }
+
+
+  .link a{
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px #0064ff;
+    color: #0064ff;
+    padding: 7px 14px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    
+    
+  }
+
+  .link a:hover {
+    color: #fff;
+    background-color: #0064ff;
+  }
+
+  .link2 a{
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px #0064ff;
+    color: #0064ff;
+    padding: 7px 14px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    margin-left: 25px;
+  }
+  .link2 a:hover {
+    color: #fff;
+    background-color: #0064ff;
+  }
+
+
+  @media screen and (max-width: 1024px) {
+    
+    .hover-image{
+      display:none;
+    }
+    .custom-cursor{
+      display:none;
+    }
+
+    .contents{
+    
+      background-image: url(image/hoshi3-2.png);
+    }
+   
+  
+  }
+  @media screen and (max-width: 480px) {
+
+    p{
+      font-size: 15px;
+      line-height: 35px;
+    }
+
+    a{
+      font-size: 16px;
+    }
+    
+    .title{
+      width: 330px;
+      margin-top: -167px;
+    }
+    .hover-image{
+      display:none;
+    }
+    .custom-cursor{
+      display:none;
+      background: none;
+    }
+    .hover-container{
+      width: 330px;
+      height: 460px;
+    
+    }
+    .contents{
+      width: 330px;
+      height: 460px;
+      background-image: url(image/hoshi3-2.png) ;
+      background-repeat:no-repeat; 
+      background-position : center;
+      background-size: 100%;
+    }
+    .day{
+      margin: 18px 0 0 165px  ;
+      
+  }
+  
+  .day p{
+      margin-bottom: 5px;
+      font-size: 16px;
+      line-height: 20px;
+  }
+  .day ul{
+    list-style: none;
+    margin:  0;
+    margin-top: 5px;
+    /* margin-left: 26px; */
+    padding: 0; 
+    font-size:  16px;
+}
+.place{
+  margin: 15px 0 0 20px;
+  font-size: 16px;
+}
+
+.place p{
+  margin:-5px 0;
+}
+
+
+.text{
+  margin: 30px 0 0 20px;
+}
+
+.correspondence{
+  margin: 98px 0 0 200px;
+}
+
+.hutariten p{
+  font-size: 16px;
+ 
+  margin: 0px 0 0 20px;
+}
+button{
+  font-size: 16px;
+}
+.popup-content{
+  width: 250px;
+    height: 400px;
+}
+.close{
+  font-size: 24px;
+}
+.midashi{
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+.midashi p{
+  margin:0;
+  line-height: normal;
+}
+.honbun{
+  width: 230px;
+  margin-left: 10px;
+}
+.honbun p{
+  line-height: 23px;
+}
+.honbun img{
+  width: 250px;
+  margin-left: -10px;
+  border: solid 1px #0064ff;
+  margin-bottom: 15px;
+}
+
+.link a{
+  font-size: 12px;
+  margin-left: 0px;
+  padding: 5px 3.5px;
+  
+}
+
+.link2 a{
+  font-size: 12px;
+  margin-left: 5px;
+  padding: 5px 3.5px;
+
+  
+}
+
+.mapmark{
+  margin-top: 20px;
+  margin-left: 0px;
+}
+
+
+.mapmark p{
+line-height: 20px;
+}
+
+.mapdec{
+  width: 250px;
+  height: 340px;
+  margin-top: 10px;
+}
+
+#map-frame {
+  width: 250px;
+  height: 340px;
+
+}
+    
+  }
