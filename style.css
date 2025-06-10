@@ -38,7 +38,7 @@ a{
 
 
 .left {
-  width: 250px;
+  width: 280px;
   background-image: url("imag/left.png");
   background-color: #e8f2ff;
   background-size: 3px;
@@ -80,6 +80,13 @@ a{
   border: 3px solid #bbbbbb;
 }
 
+.news{
+  font-size: 14px;
+  margin-bottom: 20px;
+  border: 3px dashed #f3f7fc;
+  padding: 12px 5px;
+  line-height: 1.7;
+}
 
 .center {
   width: 30%;
@@ -530,6 +537,12 @@ border: none;
     height: 100%;
   }
 
+  .news{
+  font-size: 15px;
+  margin-top: 20px;
+  padding: 10px 10px;
+  line-height: 1.7;
+}
  .copyright {
     text-align: center;
     margin-top: 50px;
