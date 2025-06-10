@@ -146,7 +146,8 @@ const contents = {
     {
       title: "お問い合わせ",
       details: "メール：ootaoota0038[a]gmail.com<br><br>[a]を@に変更してお使いください。",
-      images: []
+      images: [],
+      link: "https://forms.gle/17ErUsJnvgpZaqVM9"
     }
   ]
 };
@@ -216,6 +217,12 @@ function showCategory(category) {
       <p>${item.details}</p>
     `;
 
+    // 🔸 contactのリンク表示を追加
+  if (item.link) {
+    html += `<p class="form"><a href="${item.link}" target="_blank" rel="noopener noreferrer">お問い合わせフォーム↗︎</a></p>`;
+  }
+
+
     // 🔸 リンク一覧を中央エリアに表示
     if (item.links && item.links.length > 0) {
       const linkListHTML = `
@@ -231,21 +238,20 @@ function showCategory(category) {
     contentList.innerHTML = html;
 
     // 🔸 画像があれば PC では右側、モバイルでは中央に表示
-let imagesHTML = '';
-if (item.images && item.images.length > 0) {
-  imagesHTML = item.images.map(src => `<img src="${src}" class="about-image">`).join('');
+// 画像はaboutのみ表示したい場合
+  let imagesHTML = '';
+  if (category === 'about' && item.images && item.images.length > 0) {
+    imagesHTML = item.images.map(src => `<img src="${src}" class="about-image">`).join('');
 
-  if (window.innerWidth <= 768) {
-    // 🔸 モバイル：画像をテキストの上に表示
-    contentList.innerHTML = imagesHTML + contentList.innerHTML;
-    detailsDiv.innerHTML = ''; // 右側は空に
+    if (window.innerWidth <= 768) {
+      contentList.innerHTML = imagesHTML + contentList.innerHTML;
+      detailsDiv.innerHTML = '';
+    } else {
+      detailsDiv.innerHTML = imagesHTML;
+    }
   } else {
-    // 🔸 PC：右側に画像を表示
-    detailsDiv.innerHTML = imagesHTML;
+    detailsDiv.innerHTML = '';
   }
-} else {
-  detailsDiv.innerHTML = ''; // 画像がなければ空に
-}
 
 
 

@@ -281,6 +281,11 @@ small{
  background-size: 3px;
 }
 
+.form a{
+  text-decoration: none;
+  color: #6161ff;
+}
+
 #history-bar {
   position: fixed;
   bottom: 0;
@@ -551,6 +556,10 @@ border: none;
     font-weight: 400;
     transform: scale(1.1, 1);
     letter-spacing: 2px;
+  }
+
+  .about-image{
+    margin-top: 0px;
   }
 
 .menu-item{
