@@ -161,12 +161,6 @@ small{
 
 
 
-.copyright {
-  font-size: 12px;
-  color: #888;
-
-  padding-top: 15px;
-}
 
 /* 真ん中の要素をクリックすると色が変わる */
 .content-item.active {
@@ -469,7 +463,7 @@ border: none;
   flex-direction: column;
  
   font-size: 16px;
-  border: 7px solid #d9daef;
+  border: 4px solid #d9daef;
   margin-bottom: 10px;
   padding: 45px 0.5rem;
   background-image: url("imag/center1.png");
@@ -503,6 +497,26 @@ border: none;
 }
 
 @media (min-width: 769px) {
+#menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 上と下に要素を分ける */
+  height:  calc(100vh - 57px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.menu-items {
+  flex-grow: 1; /* 間のスペースを占める */
+}
+
+.copyright {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  padding-top: 10px;
+}
+
 /* スクロールバー全体 */
 ::-webkit-scrollbar {
   width: 7px; /* 縦スクロールバーの幅 */
@@ -525,6 +539,7 @@ border: none;
 ::-webkit-scrollbar-thumb:hover {
   background: #a5a5a5;       /* ホバー時の色 */
 }
+
 }
 @media screen and (max-width: 1200px) {
   .detail-image-half {
@@ -554,16 +569,24 @@ border: none;
   }
   .left {
   height: 100%;
+  border: none;
 }
 
  .center {
   height: 100%;
 }
 
+ .copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+  }
+
 .menu-item{
   padding:10px;
   font-size: 20px;
-  border: 7px solid #d4d4d4;
+  border: 4px solid #d4d4d4;
 }
 
   .container.show-menu .left {
