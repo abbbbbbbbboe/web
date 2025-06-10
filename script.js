@@ -35,7 +35,7 @@ const contents = {
 }
 ,   {
   title: "塩澄 祥大個展「BMX Graffiti」",
-  details: "2023年1月22日から2月1日に開催した塩澄 祥大さんの個展「BMX Graffiti」のチラシなどのグラフィックデザイン。<br>自転車でストリートに水でグラフィティした作品の記録写真の展示。それらは基本的に夜にグラフィティされ自転車のライトで照らした状態で撮影されている。そのため写真は粗い。写真の荒さを生かして写真のドットを十字に変形させて独自の荒さを作っている。また、光沢紙にを用いてその十字のドットにマットニスを印刷してドットを強調している。<br>チラシ情報紙｜エスプリFP 四六判T目110kg、インク|表：K＋青（DIC-579D）＋マットニス,裏：K、渡辺印刷（株）<br>令和5年度文化庁メディア芸術クリエイター育成支援事業採択",
+  details: "2023年1月22日から2月1日に開催した塩澄 祥大さんの個展「BMX Graffiti」のチラシなどのグラフィックデザイン。<br>自転車でストリートに水でグラフィティした作品の記録写真の展示。それらは基本的に夜にグラフィティされ自転車のライトで照らした状態で撮影されている。そのため写真は粗い。写真の荒さを生かして写真のドットを十字に変形させて独自の荒さを作っている。また、光沢紙にを用いてその十字のドットにマットニスを印刷してドットを強調している。<br>チラシ情報<br>紙|エスプリFP 四六判T目110kg、インク|表：K＋青（DIC-579D）＋マットニス,裏：K、渡辺印刷（株）<br>令和5年度文化庁メディア芸術クリエイター育成支援事業採択",
   images: ["workimag/bmxg/BMXGraffiti2.jpg", "workimag/bmxg/BMXGraffiti3.jpg", "workimag/bmxg/BMXGraffiti4.jpg", "workimag/bmxg/BMXGraffiti5.jpg", "workimag/bmxg/BMXGraffiti6.jpg", "workimag/bmxg/BMXGraffiti7.jpg", "workimag/bmxg/BMXGraffiti1.jpg", "workimag/bmxg/BMXGraffiti8.jpg","workimag/bmxg/BMXGraffiti.gif"  ],
   date: "2023",
   category: "graphic design",
@@ -126,7 +126,7 @@ const contents = {
   about: [
     {
       title: "about",
-      details: "オオタソラ<br>1998年福岡生まれ。武蔵野美術大学 造形学部 基礎デザイン学科 卒業。web、グラフィックデザイン、映像の制作を主に行う。モニターに映し出される表現に興味がある。<br><br>【展覧会歴】<br>2024年 <br>・多摩美術大学助手展2024<br>・2人展「Shinin d(^_^o)」<br>2023年 <br>・多摩美術大学助手展2023",
+      details: "オオタソラ<br>1998年福岡生まれ。武蔵野美術大学 造形学部 基礎デザイン学科 卒業。web、グラフィックデザイン、映像の制作を主に行う。モニターに映し出される表現に興味がある。<br><br>【展覧会歴】<br>2024年<br>・2人展「Shinin d(^_^o)」 <br>・多摩美術大学助手展2024<br>2023年 <br>・多摩美術大学助手展2023",
       images: ["imag/icon.webp"]
     }
   ],
