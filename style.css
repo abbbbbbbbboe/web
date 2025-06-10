@@ -8,7 +8,6 @@ body, html {
   height: 100%;
   color: #474747;
   font-family: "Inter", "Noto Sans JP", sans-serif;
-
 }
 
 body {
@@ -48,12 +47,11 @@ a{
 
 .otasora{
   font-size: 17px;
-   
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-margin-left: 3px;
- z-index: 100;
+  margin-left: 3px;
+  z-index: 100;
 }
 
 .otasora a{
@@ -63,7 +61,6 @@ margin-left: 3px;
 
 .menu-items{
   margin-top: 20px;
-  
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -89,7 +86,6 @@ margin-left: 3px;
   background-image: url("imag/center2.png");
   background-color: #e8f2ff;
   background-size: 3px;
-  /* border-right: 1px solid #ccc; */
   padding-bottom: 100px;
   overflow-y: scroll;
   padding-top: 15px;
@@ -105,30 +101,23 @@ margin-left: 3px;
   margin-bottom: 18px;
 }
 
-
-
-
-
 .menu-item, .content-item {
   cursor: pointer;
 }
-
-
 
 .content-item {
   width: 100%;
   overflow-wrap: break-word;
   margin-top: 10px;
   background-image: url("imag/2.png");
-   background-size: 3px;
-   background-color: #e8f2ff;
-    border: 3px solid #e8f2ff;
-    padding: 0.5rem;
+  background-size: 3px;
+  background-color: #e8f2ff;
+  border: 3px solid #e8f2ff;
+  padding: 0.5rem;
 }
 
 strong{
- font-size: 17px;
- 
+  font-size: 17px;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -138,7 +127,6 @@ small{
   font-size: 16px;
   margin-top: 3px;
   color: #555;
-  
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
@@ -153,13 +141,11 @@ small{
 
 /* 左端のメニューのクリックしたら色が変わる */
 .menu-item.active {
-   background-image: url("imag/right.png");
+  background-image: url("imag/right.png");
   background-color: #e8f2ff;
   background-size: 3px;
   border: 3px solid #e8f2ff;
 }
-
-
 
 
 /* 真ん中の要素をクリックすると色が変わる */
@@ -180,11 +166,9 @@ small{
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  
-    margin-left: 125px;
+  margin-left: 125px;
   margin-right: 125px;
   margin-top: 40px;
- 
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -197,7 +181,6 @@ small{
   margin-bottom: 10px;
   margin-left: 125px;
   margin-right: 125px;
-  
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
@@ -205,20 +188,16 @@ small{
 
 .detail-meta a {
   text-decoration: underline;
- 
-   text-decoration: none;
+  text-decoration: none;
   color: #666;
 }
 
 .detail-meta a:hover{
   text-decoration: underline;
-  
-   text-decoration: none;
+  text-decoration: none;
   color: #555;
   font-weight: 500;
 }
-
-
 
 .detail-description {
   font-size: 18px;
@@ -226,9 +205,7 @@ small{
   letter-spacing: 3px;
   margin-left: 125px;
   margin-right: 125px;
-  margin-top: 20px;
-  /* width: 90%; */
-  
+  margin-top: 20px;  
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -247,25 +224,21 @@ small{
 .detail-image-large {
   width: 80%;             /* 1枚目は全幅 */
   height: auto;
-  
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-   display: block;
+  display: block;
 }
 
 .detail-image-half {
   height: auto;           /* 高さは自動にして比率を維持 */
   width: auto;            /* 幅も自然に */
   max-width: 48%;         /* 横に2枚並べる最大幅（調整可能） */
-  
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
 
 
 #details {
   width: 80%;
   height: 100%;
-  /* overflow: hidden; */
   position: relative;
   padding-bottom: 100px;
 }
@@ -273,7 +246,6 @@ small{
 .links{
   margin-top: 20px;
   font-size: 17px;
-
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -281,19 +253,18 @@ small{
 
 .links p{
   margin-top: 30px;
-
 }
 .links a{
   width: 100%;
   overflow-wrap: break-word;
   margin-top: 10px;
   background-image: url("imag/2.png");
-   background-size: 3px;
-   background-color: #e8f2ff;
-    border: 3px solid #e8f2ff;
-    padding: 0.5rem;
-    text-decoration: none;
-    color: #474747;
+  background-size: 3px;
+  background-color: #e8f2ff;
+  border: 3px solid #e8f2ff;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #474747;
 }
 
  .links a:hover {
@@ -301,7 +272,6 @@ small{
  background-color: #d2d3ec;
  border: 3px solid #d2d3ec;
  background-size: 3px;
-
 }
 
 #history-bar {
@@ -310,7 +280,7 @@ small{
   left: 0;
   right: 0;
   height: 57px;
-  overflow-x: scroll;  /* ← "auto" を "scroll" に変更 */
+  overflow-x: scroll; 
   overflow-y: hidden;
   background-color: #e8f2ff;
   display: flex;
@@ -319,7 +289,7 @@ small{
   box-sizing: border-box;
   white-space: nowrap;
   z-index: 1000;
-background-image:  url("imag/5.png");
+  background-image:  url("imag/5.png");
   /* スクロールバーを上に持ってくる（必要であれば） */
   transform: rotateX(180deg);
 }
@@ -327,7 +297,6 @@ background-image:  url("imag/5.png");
 /* 中のアイテムだけ元に戻す */
 #history-bar .history-item {
   transform: rotateX(180deg);
-  
 }
 
 /* 履歴の表示 */
@@ -335,14 +304,13 @@ background-image:  url("imag/5.png");
   background-image:  url("imag/6.png");
   background-color: #ffffff;
   border: 3px solid #ffffff;
-   background-size: 3px;
+  background-size: 3px;
   height:30px ;
   padding:0px 10px 5px 10px;  
   margin-top: 4px;
 }
 
 .history-item:hover{
- 
   height:30px ;
   padding:0px 10px 3px 10px; 
   color: #fff;
@@ -369,8 +337,6 @@ background-image:  url("imag/5.png");
   overflow: auto;
 }
 
-
-
 #preview-item {
    display: none; /* ← 最初は非表示に */
   position: fixed;
@@ -383,22 +349,14 @@ background-image:  url("imag/5.png");
   pointer-events: none;
   align-items: center;
   justify-content: center;
-
 }
   
-
-
 /* ▼追加部分：画像の表示スタイル */
 #preview-item img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  
 }
-
-
-
-
 
 #preview-item {
   z-index: 2;
@@ -409,18 +367,12 @@ border: none;
 #detail-item {
   overflow-y: auto;
   max-height: 100%;
-  
-  
 }
-
 
 .about-image {
   width: 300px;
   margin-top: 45px;
-  
 }
-
-
 
 /* ハンバーガーボタン */
 .hamburger {
@@ -433,7 +385,6 @@ border: none;
   font-size: 28px;
   cursor: pointer;
   display: none;
-  
 }
 
 #hamburger::before {
@@ -448,7 +399,6 @@ border: none;
   color: #474747;
 }
 
-
 /* モバイル用メニュー */
 .mobile-menu {
   position: fixed;
@@ -459,7 +409,6 @@ border: none;
   z-index: 1001;
   display: none;
   flex-direction: column;
- 
   font-size: 16px;
   border: 4px solid #d9daef;
   margin-bottom: 10px;
@@ -467,7 +416,6 @@ border: none;
   background-image: url("imag/center1.png");
   background-color: #d9daef;
   background-size: 3px;
- 
 }
 
 .mobile-menu .menu-item {
@@ -512,8 +460,8 @@ border: none;
 .copyright {
   font-size: 10px;
   color: #888;
-   font-weight: 350;
-    transform: scale(1.1, 1);
+  font-weight: 350;
+  transform: scale(1.1, 1);
   padding-top: 10px;
   padding-left: 5px;
   letter-spacing: 2px;
@@ -543,19 +491,17 @@ border: none;
 }
 
 }
+
 @media screen and (max-width: 1200px) {
   .detail-image-half {
   height: auto;           /* 高さは自動にして比率を維持 */
   width: auto;            /* 幅も自然に */
   max-width: 80%;         /* 横に2枚並べる最大幅（調整可能） */
-  
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .detail-description {
-  
   margin-left: 70px;
   margin-right: 70px;
- 
 }
 
 }
@@ -576,13 +522,13 @@ border: none;
     display: none; /* 最初は非表示にする */
   }
   .left {
-  height: 100%;
-  border: none;
-}
+    height: 100%;
+    border: none;
+  }
 
  .center {
-  height: 100%;
-}
+    height: 100%;
+  }
 
  .copyright {
     text-align: center;
@@ -636,11 +582,9 @@ border: none;
   font-size: 25px;
   font-weight: bold;
   margin-bottom: 0.5rem;
-
-
   margin-top: 40px;
-   margin-left: 40px;
-   margin-right: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -651,66 +595,58 @@ border: none;
   font-size: 16px;
   color: #666;
   margin-bottom: 10px;
-  
-  
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
- 
-  
-    margin-left: 40px;
-    margin-right: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
   margin-top: 30px;
- 
 }
 
 .detail-meta a {
   text-decoration: underline;
- margin-top:10px;
-   text-decoration: none;
+  margin-top:10px;
+  text-decoration: none;
   color: #666;
-  
 }
 
 .detail-link{
   margin-top:10px;
 }
 
-
-
 .detail-description {
   font-size: 15px;
-  line-height: 2;
+  line-height: 1.7;
   letter-spacing: 1px;
-  
-
-  /* width: 80%; */
-  
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 40px;
- margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 .detail-image-large {
   width: 80%;             /* 1枚目は全幅 */
   height: auto;
-  
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-   display: block;
+  display: block;
 }
 
 .detail-image-half {
   height: auto;           /* 高さは自動にして比率を維持 */
   width: auto;            /* 幅も自然に */
   max-width: 80%;         /* 横に2枚並べる最大幅（調整可能） */
-  
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.mobile-preview-image {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover;
+  margin: 10px 0;
+  margin-bottom: 0px;
+}
 
 
 }

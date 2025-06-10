@@ -250,39 +250,43 @@ if (item.images && item.images.length > 0) {
 
 
   } else {
-    // 🔹 work 等のカテゴリ表示処理
-    contentList.innerHTML = `<p>${category}</p>`;
+  // 🔹 work 等のカテゴリ表示処理
+  contentList.innerHTML = `<p>${category}</p>`;
 
-    // 🔸 プレビュー用画像を事前にプリロード（ここに追加！）
-    if (contents[category]) {
-      contents[category].forEach(item => {
-        if (item.images && item.images.length > 0) {
-          const preloadImg = new Image();
-          preloadImg.src = item.images[0];
-        }
-      });
+  // 🔸 プレビュー用画像を事前にプリロード（ここに追加！）
+  if (contents[category]) {
+    contents[category].forEach(item => {
+      if (item.images && item.images.length > 0) {
+        const preloadImg = new Image();
+        preloadImg.src = item.images[0];
+      }
+    });
+  }
+
+  contents[category].forEach((item, index) => {
+    const div = document.createElement('div');
+    div.className = 'content-item';
+
+    // スマホ（768px以下）の場合はプレビュー画像を追加
+    let previewImgHTML = '';
+    if (window.innerWidth <= 768 && item.images && item.images.length > 0) {
+      previewImgHTML = `<img src="${item.images[0]}" class="mobile-preview-image" />`;
     }
 
-    contents[category].forEach((item, index) => {
-      const div = document.createElement('div');
-      div.className = 'content-item';
+    div.innerHTML = `
+      <strong>${item.title}</strong><br>
+      ${item.date ? `<small>${item.category}</small>` : ''}
+      ${item.category ? `<small>${item.date}</small>` : ''}
+      ${previewImgHTML}
+    `;
 
-      // タイトル + 日付・カテゴリをHTMLとして組み立て
-      div.innerHTML = `
-        <strong>${item.title}</strong><br>
-        ${item.date ? `<small>${item.category}</small>` : ''}
-        ${item.category ? `<small>${item.date}</small>` : ''}
-      `;
+    // 🔸 詳細表示クリックイベント
+    div.onclick = () => showDetails(category, index);
+    setupHoverPreview(div, item, index, category);
 
-      // 🔸 詳細表示クリックイベント
-      div.onclick = () => showDetails(category, index);
-      setupHoverPreview(div, item, index, category);
+    contentList.appendChild(div);
+  });
 
-
-     
-
-      contentList.appendChild(div);
-    });
   }
 
   // 🔸 履歴に追加
@@ -365,6 +369,7 @@ function showDetails(category, index) {
     }).join('');
   }
 
+  
   // 詳細内容を描画
   detailDiv.innerHTML = `
     <p class="detail-title">${detail.title}</p>
