@@ -158,7 +158,25 @@ small{
   border: 3px solid #e8f2ff;
 }
 
+#menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 上と下に要素を分ける */
+  height: calc(100vh - 50px);
+  padding: 20px;
+  box-sizing: border-box;
+}
 
+.menu-items {
+  flex-grow: 1; /* 間のスペースを占める */
+}
+
+.copyright {
+  font-size: 12px;
+  color: #888;
+  
+  padding-top: 10px;
+}
 
 /* 真ん中の要素をクリックすると色が変わる */
 .content-item.active {
