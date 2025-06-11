@@ -466,6 +466,7 @@ border: none;
   letter-spacing: 0.5px;
   font-family: "Inter", sans-serif;
   color: #474747;
+  position: relative;
 }
 
 
@@ -562,6 +563,7 @@ border: none;
     
     height: auto;
     display: none; /* 最初は非表示にする */
+    margin-bottom: 50px;
   }
   .left {
     height: 100%;
