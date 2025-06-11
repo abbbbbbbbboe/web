@@ -389,6 +389,12 @@ function showDetails(category, index) {
     ${window.innerWidth <= 768 ? `<button class="back-to-list">back to list↩︎</button>` : ''}
   `;
 
+  // 🔸 innerHTML を書き換えた後にスクロールをリセット（タイミングが重要！）
+setTimeout(() => {
+  detailDiv.scrollTop = 0;
+  window.scrollTo(0, 0); // スマホ表示では念のため全体も上に
+}, 0);
+
   selectedDetailCategory = category;
   selectedDetailIndex = index;
 
