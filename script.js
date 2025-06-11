@@ -347,7 +347,7 @@ function setupHoverPreview(div, item, index, category) {
 function showDetails(category, index) {
   const container = document.querySelector('.container');
 
-  // 🔸 プレビューを非表示にする処理を追加
+  // 🔸 プレビューを非表示にする処理
   const previewDiv = document.getElementById('preview-item');
   const previewImg = document.getElementById('preview-img');
   if (previewDiv && previewImg) {
@@ -355,6 +355,7 @@ function showDetails(category, index) {
     previewImg.style.display = 'none';
     previewDiv.style.display = 'none';
   }
+
   const detail = contents[category][index];
   const detailDiv = document.getElementById('detail-item');
   detailDiv.scrollTop = 0;
@@ -375,17 +376,17 @@ function showDetails(category, index) {
     }).join('');
   }
 
-  
-  // 詳細内容を描画
+  // 🔸 詳細内容を描画（戻るボタンも含めて1回で）
   detailDiv.innerHTML = `
     <p class="detail-title">${detail.title}</p>
     <p class="detail-meta">
-      ${detail.date ? `<span class="detail-date"> ${detail.date}</span><br>` : ''}
-      ${detail.category ? `<span class="detail-category"> ${detail.category}</span><br>` : ''}
-      ${detail.link ? `<span class="detail-link"><a href="${detail.link}" style="padding-top:10px;" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
+      ${detail.date ? `<span class="detail-date">${detail.date}</span><br>` : ''}
+      ${detail.category ? `<span class="detail-category">${detail.category}</span><br>` : ''}
+      ${detail.link ? `<span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
     </p>
     <p class="detail-description">${detail.details}</p>
     <div class="detail-images">${imagesHTML}</div>
+    ${window.innerWidth <= 768 ? `<button class="back-to-list">back to list↩︎</button>` : ''}
   `;
 
   selectedDetailCategory = category;
@@ -398,8 +399,19 @@ function showDetails(category, index) {
     container.classList.remove('show-list');
     container.classList.add('show-detail');
     window.scrollTo(0, 0);
+
+    // 🔸 一覧に戻るボタンの動作
+    const backButton = document.querySelector('.back-to-list');
+    if (backButton) {
+      backButton.addEventListener('click', () => {
+        container.classList.remove('show-detail');
+        container.classList.add('show-list');
+        window.scrollTo(0, 0);
+      });
+    }
   }
 }
+
 
 // ===============================
 // 🔷 初期化処理と背景操作
@@ -425,6 +437,8 @@ window.addEventListener("load", () => {
       }
     });
   }
+
+
 });
 
 // ===============================

@@ -454,6 +454,25 @@ border: none;
   transition: transform 0.3s ease;
 }
 
+.back-to-list {
+  display: block;
+  margin: 10px auto 80px; 
+  padding: 10px 20px;
+  font-size: 16px;
+     background-image: url("imag/center2.png");
+  background-color: #e8f2ff;
+  background-size: 3px;
+  border: 3px solid #e8f2ff;
+  letter-spacing: 0.5px;
+  
+}
+
+
+.back-to-list:hover {
+  background-color: #666;
+}
+
+
 @media (min-width: 769px) {
 #menu {
   display: flex;
@@ -525,6 +544,8 @@ border: none;
 }
 
 }
+
+
 
 
 
@@ -655,6 +676,11 @@ border: none;
   margin-right: 40px;
   margin-top: 40px;
   margin-bottom: 30px;
+}
+
+.detail-images {
+
+  padding-bottom: 15px;
 }
 .detail-image-large {
   width: 80%;             /* 1枚目は全幅 */
