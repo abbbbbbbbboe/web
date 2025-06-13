@@ -283,7 +283,7 @@ function showCategory(category) {
     div.innerHTML = `
       <strong>${item.title}</strong><br>
       ${item.date ? `<small>${item.category}</small>` : ''}
-      ${item.category ? `<small>${item.date}</small>` : ''}
+      ${item.category ? `<small>|&nbsp;${item.date}</small>` : ''}
       ${previewImgHTML}
     `;
 
@@ -382,11 +382,12 @@ function showDetails(category, index) {
     <p class="detail-title">${detail.title}</p>
     <p class="detail-meta">
       ${detail.date ? `<span class="detail-date">${detail.date}</span><br>` : ''}
-      ${detail.category ? `<span class="detail-category">${detail.category}</span><br>` : ''}
+      ${detail.category ? `<span class="detail-category">${detail.category}</span><br><br>` : ''}
       ${detail.link ? `<span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
     </p>
-    <p class="detail-description">${detail.details}</p>
+    
     <div class="detail-images">${imagesHTML}</div>
+    <p class="detail-description">${detail.details}</p>
     ${window.innerWidth <= 768 ? `<button class="back-to-list">back to work list↩︎</button>` : ''}
   `;
 
