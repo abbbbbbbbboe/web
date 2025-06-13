@@ -528,13 +528,13 @@ border: none;
 
 }
 
-@media screen and (max-width: 1400px) {
-  .detail-image-half {
+@media screen and (max-width: 1200px) {
+  /* .detail-image-half {
   height: auto;          
   width: auto;            
   max-width: 80%;        
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+} */
 .detail-description {
   margin-left: 70px;
   margin-right: 70px;
