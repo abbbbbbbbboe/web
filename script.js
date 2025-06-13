@@ -51,7 +51,7 @@ const contents = {
 }
 ,   {
   title: "はじめての植物生体電位測定",
-  details: "西田 騎夕さんの「植物生体電位測定をオープンにするプロジェクト」で作成した植物生体電位測定についての技術書。<br>装丁から表紙のイラスト、写真撮影などトータルでデザインを行った。表紙のイラストは、タイトルの「はじめての」というように導入書として手に取りやすいようにポップで教科書のような雰囲気を意識した。A5サイズ・80ページ。メーカーフェアやオンライン上で販売。",
+  details: "西田 騎夕さんの「植物生体電位測定をオープンにするプロジェクト」で作成した植物生体電位測定についての技術書。<br>装丁から表紙のイラスト、写真撮影などトータルでデザインを行った。表紙のイラストは、タイトルの「はじめての」というように導入書として手に取りやすいようにポップで教科書のような雰囲気を意識した。A5サイズ・80ページ。メーカーフェアやオンラインストアで販売。",
   images: ["workimag/plantbook/plantbook1.jpeg", "workimag/plantbook/plantbook2.jpeg","workimag/plantbook/plantbook3.jpeg","workimag/plantbook/plantbook4.jpeg","workimag/plantbook/plantbook5.jpeg","workimag/plantbook/plantbook6.jpeg"],
   date: "2023",
   category: "book/illustration",
@@ -138,7 +138,8 @@ const contents = {
     links: [
       { title: "Instagram↗︎", url: "https://www.instagram.com/abbbbbbbbboe/" },
       { title: "メモ↗︎", url: "https://otasora.website/hakko/" },
-      { title: "日記↗︎", url: "https://note.com/otasora" }
+      { title: "日記↗︎", url: "https://note.com/otasora" },
+      { title: "Tシャツ↗︎", url: "https://suzuri.jp/ota_sora/" }
     ]
   }
   ],
@@ -386,7 +387,7 @@ function showDetails(category, index) {
     </p>
     <p class="detail-description">${detail.details}</p>
     <div class="detail-images">${imagesHTML}</div>
-    ${window.innerWidth <= 768 ? `<button class="back-to-list">back to list↩︎</button>` : ''}
+    ${window.innerWidth <= 768 ? `<button class="back-to-list">back to work list↩︎</button>` : ''}
   `;
 
   // 🔸 innerHTML を書き換えた後にスクロールをリセット（タイミングが重要！）
