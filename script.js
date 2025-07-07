@@ -8,8 +8,26 @@ const contents = {
   category: "website",
   link: "https://otasora.website/shining/"
 }
+,   {
+  title: "塩澄 祥大個展「BMX Graffiti」",
+  details: "2024年1月22日から2月1日に開催した塩澄 祥大さんの個展「BMX Graffiti」のチラシなどのグラフィックデザイン。<br>自転車でストリートに水でグラフィティした作品の記録写真の展示。それらは基本的に夜にグラフィティされ自転車のライトで照らした状態で撮影されている。そのため写真は粗い。写真の荒さを生かして写真のドットを十字に変形させて独自の荒さを作っている。また、光沢紙にを用いてその十字のドットにマットニスを印刷してドットを強調している。<br>チラシ情報<br>紙|エスプリFP 四六判T目110kg、インク|表：K＋青（DIC-579D）＋マットニス,裏：K、渡辺印刷（株）<br>令和5年度文化庁メディア芸術クリエイター育成支援事業採択",
+  images: ["workimag/bmxg/BMXGraffiti2.jpg", "workimag/bmxg/BMXGraffiti3.jpg", "workimag/bmxg/BMXGraffiti4.jpg", "workimag/bmxg/BMXGraffiti5.jpg", "workimag/bmxg/BMXGraffiti6.jpg", "workimag/bmxg/BMXGraffiti7.jpg", "workimag/bmxg/BMXGraffiti1.jpg", "workimag/bmxg/BMXGraffiti8.jpg","workimag/bmxg/BMXGraffiti.gif"  ],
+  date: "2024",
+  category: "graphic design",
+  link: "http://blockhouse.jp/index.php?itemid=315"
+}
 ,
-      {
+       {
+  title: "小林 玲衣奈 オンライン展示「あわいのために」",
+  details: "2023年からweb上で開催している、小林 玲衣奈さんのオンライン展示「あわいのために」の告知用DMと展示サイトで使用したグラフィックデザイン、メインビジュアル等の作成。<br>オンライン上での展示なので、モニターの一般的な比率16:9をDMのサイズにした。単色の中の微妙な色の変化を用いて本展示のテーマである「今は無くなってしまった風景」ということをイメージできる柔らかい印象を持つような構成にした。表のグラフィックで用いている文章は作品の一節から印象的なものをそれぞれ抜き出して用いている。全6パターン。<br>DM情報<br>本線紙｜OKACカード_ましろ_354kg、インク｜表：DIC-442,裏：K、渡辺印刷（株）<br>令和5年度文化庁メディア芸術クリエイター育成支援事業採択",
+  images: ["workimag/theinbetween/between1.jpg", "workimag/theinbetween/between2.jpg", "workimag/theinbetween/between3.jpg"],
+  date: "2023",
+  category: "graphic design",
+  link: "https://www.kobayashireina.com/theinbetween"
+}
+
+,   
+{
   title: "イーソーのタトゥー",
   details: "友人のタトゥーのデザイン。麻雀のイーソーをモチーフにドットのイラストレーションを作成した。<br>タトゥーは細かく線を描くと潰れてしまうため、大きさとドットの荒さのバランスをとりながら、鳥の体はドットで作成したものの輪郭から線におこしている。<br>インクは印刷物用のものとは違うが、複数の色が用意されていてその中から鮮やかめの緑と黒を用いた。<br>場所：右上腕二の腕、サイズ：62*44mm",
   images: ["workimag/iso/iso2.jpg", "workimag/iso/iso1.png", "workimag/iso/iso3.png"],
@@ -25,23 +43,8 @@ const contents = {
   category: "illustration",
   link: "https://linkco.re/aXHex5Hs/songs/2424992/lyrics?lang=ja"
 }
-,   {
-  title: "小林 玲衣奈 オンライン展示「あわいのために」",
-  details: "2023年からweb上で開催している、小林 玲衣奈さんのオンライン展示「あわいのために」の告知用DMと展示サイトで使用したグラフィックデザイン、メインビジュアル等の作成。<br>オンライン上での展示なので、モニターの一般的な比率16:9をDMのサイズにした。単色の中の微妙な色の変化を用いて本展示のテーマである「今は無くなってしまった風景」ということをイメージできる柔らかい印象を持つような構成にした。表のグラフィックで用いている文章は作品の一節から印象的なものをそれぞれ抜き出して用いている。全6パターン。<br>DM情報<br>本線紙｜OKACカード_ましろ_354kg、インク｜表：DIC-442,裏：K、渡辺印刷（株）<br>令和5年度文化庁メディア芸術クリエイター育成支援事業採択",
-  images: ["workimag/theinbetween/between1.jpg", "workimag/theinbetween/between2.jpg", "workimag/theinbetween/between3.jpg"],
-  date: "2023",
-  category: "graphic design",
-  link: "https://www.kobayashireina.com/theinbetween"
-}
-,   {
-  title: "塩澄 祥大個展「BMX Graffiti」",
-  details: "2023年1月22日から2月1日に開催した塩澄 祥大さんの個展「BMX Graffiti」のチラシなどのグラフィックデザイン。<br>自転車でストリートに水でグラフィティした作品の記録写真の展示。それらは基本的に夜にグラフィティされ自転車のライトで照らした状態で撮影されている。そのため写真は粗い。写真の荒さを生かして写真のドットを十字に変形させて独自の荒さを作っている。また、光沢紙にを用いてその十字のドットにマットニスを印刷してドットを強調している。<br>チラシ情報<br>紙|エスプリFP 四六判T目110kg、インク|表：K＋青（DIC-579D）＋マットニス,裏：K、渡辺印刷（株）<br>令和5年度文化庁メディア芸術クリエイター育成支援事業採択",
-  images: ["workimag/bmxg/BMXGraffiti2.jpg", "workimag/bmxg/BMXGraffiti3.jpg", "workimag/bmxg/BMXGraffiti4.jpg", "workimag/bmxg/BMXGraffiti5.jpg", "workimag/bmxg/BMXGraffiti6.jpg", "workimag/bmxg/BMXGraffiti7.jpg", "workimag/bmxg/BMXGraffiti1.jpg", "workimag/bmxg/BMXGraffiti8.jpg","workimag/bmxg/BMXGraffiti.gif"  ],
-  date: "2023",
-  category: "graphic design",
-  link: "http://blockhouse.jp/index.php?itemid=315"
-}
-,   {
+,  
+{
   title: "植物生体電位測定キット",
   details: "西田 騎夕さんの「植物生体電位測定をオープンにするプロジェクト」で作成したマイコン（Arduino Uno）にマウントして使用する植物生体電位の測定キットのパッケージデザイン。<br>タイトルとグラフィックのスタンプを数パターン作成し、組み合わせることでバリエーションの展開をしている。グラフィックは葉や電図の波などをモチーフに作成した。スタンプはレーザー加工機と3Dプリンタなどを用いて自作した。メーカーフェアやオンライン上で販売。",
   images: ["workimag/plantkit/plantkit.GIF", "workimag/plantkit/plantkitp6.png",  "workimag/plantkit/plantkitp2.jpeg", "workimag/plantkit/plantkitp3.jpeg", "workimag/plantkit/plantkitp4.jpeg", "workimag/plantkit/plantkitp5.jpeg","workimag/plantkit/plantkitp1.jpeg"],
