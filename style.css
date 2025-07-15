@@ -207,6 +207,24 @@ small{
   font-weight: 500;
 }
 
+.detail-link{
+ padding:3px;
+ background-image: url("imag/1.png") ;
+  background-color: #474747;
+
+
+  
+}
+.detail-link a{
+  color: #d9daef;
+}
+.detail-link a:hover{
+  text-decoration: underline;
+  text-decoration: none;
+  color: #d9daef;
+  font-weight: 500;
+}
+
 .detail-description {
   font-size: 16px;
   line-height: 1.8;
@@ -218,6 +236,9 @@ small{
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+   padding:15px;
+  background-color: #edeefd;
+  border-style: dotted dashed dotted  dashed;
 }
 
 .detail-images {
@@ -538,6 +559,7 @@ border: none;
 .detail-description {
   margin-left: 70px;
   margin-right: 70px;
+ 
 }
 .detail-title{
   margin-left: 70px;
@@ -667,14 +689,17 @@ border: none;
   text-decoration: underline;
   margin-top:20px;
   text-decoration: none;
-  color: #666;
+
   font-size: 18px;
 }
 
 .detail-link{
   margin-top:10px;
-  
 }
+.detail-link a{
+  color: #d9daef;
+}
+
 
 .detail-category{
   margin-bottom:100px;
@@ -691,6 +716,7 @@ border: none;
   margin-right: 30px;
   margin-top: 40px;
   margin-bottom: 30px;
+ 
 }
 
 .detail-images {
