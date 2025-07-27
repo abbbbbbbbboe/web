@@ -101,7 +101,7 @@ a{
 .center p{
   font-size: 17px;
   margin-left:3px;
-  margin-top: 4px;
+  
   font-optical-sizing: auto;
   font-weight: 350;
   font-style: normal;
@@ -410,29 +410,23 @@ border: none;
   margin-top: 45px;
 }
 
-/* ハンバーガーボタン */
 .hamburger {
   position: fixed;
   top: 10px;
   right: 10px;
   z-index: 1002;
-  background: none;
+  background: url('imag/hamburger-icon.png') no-repeat center center;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
   border: none;
-  font-size: 28px;
   cursor: pointer;
   display: none;
 }
 
-#hamburger::before {
-  content: "☰";
-  font-size: 30px;
-  color: #474747;
-}
-
-/* 開いているときは × */
-#hamburger.open::before {
-  content: "×";
-  color: #474747;
+/* 開いているときは ×アイコンに切り替える */
+.hamburger.open {
+  background-image: url('imag/close-icon.png');
 }
 
 /* モバイル用メニュー */
@@ -548,6 +542,8 @@ border: none;
 }
 
 }
+
+
 
 @media screen and (max-width: 1200px) {
   /* .detail-image-half {
