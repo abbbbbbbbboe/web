@@ -144,7 +144,7 @@ const contents = {
   about: [
     {
       title: "about",
-      details: "オオタソラ<br>1998年福岡生まれ。武蔵野美術大学 造形学部 基礎デザイン学科 卒業。web、グラフィックデザイン、映像の制作を主に行います。今はドットやパターンの表現に興味があります。なるべく道具や構造から作るように意識して制作しています。<br><br>【展覧会歴】<br>2024年<br>・2人展「Shinin d(^_^o)」 <br>・多摩美術大学助手展2024<br>2023年 <br>・多摩美術大学助手展2023",
+      details: "オオタソラ<br>1998年福岡生まれ。武蔵野美術大学 造形学部 基礎デザイン学科 卒業。web、グラフィックデザイン、映像の制作を主に行います。ドットやパターンの表現に興味があります。なるべく道具や構造から作るように意識して制作しています。<br><br>【展覧会歴】<br>2024年<br>・2人展「Shinin d(^_^o)」 <br>・多摩美術大学助手展2024<br>2023年 <br>・多摩美術大学助手展2023",
       images: ["imag/icon.webp"]
     }
   ],
@@ -157,14 +157,16 @@ const contents = {
       { title: "Instagram↗︎", url: "https://www.instagram.com/abbbbbbbbboe/" },
       { title: "メモ↗︎", url: "https://otasora.website/hakko/" },
       { title: "日記↗︎", url: "https://note.com/otasora" },
-      { title: "Tシャツ↗︎", url: "https://suzuri.jp/ota_sora/" }
+      { title: "Tシャツ↗︎", url: "https://suzuri.jp/ota_sora/" },
+      { title: "音楽チーム 作業用BGM↗︎", url: "https://www.youtube.com/@bgm1207" },
+      { title: "ゲイジュツチーム ニセテクスチャ↗︎", url: "https://www.youtube.com/@nisetexture" }
     ]
   }
   ],
   contact: [
     {
       title: "お問い合わせ",
-      details: "メール：ootaoota0038[a]gmail.com<br>[a]を@に変更してお使いください。",
+      details: "メール：ootaoota0038[a]gmail.com<br>[a]を@に変更してお使いください。<br><br>以下のお問い合わせフォームからもご連絡いただけます。",
       images: [],
       link: "https://forms.gle/17ErUsJnvgpZaqVM9"
     }
@@ -566,7 +568,7 @@ function addToHistory(entry) {
   if (history[0] && JSON.stringify(history[0]) === JSON.stringify(entry)) return;
 
   history.unshift(entry);
-  if (history.length > 10) history.pop();
+  if (history.length > 40) history.pop();
 
   const historyBar = document.getElementById('history-bar');
   historyBar.innerHTML = '';
