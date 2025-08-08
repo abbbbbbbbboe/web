@@ -517,22 +517,36 @@ const bgImages = [
   "bg41.png", "bg42.png"
 ];
 
-// 🔸 画像プリロード
+// 🔸 画像プリロード（読み込み完了を保証）
+const preloadedImages = {};
+
 function preloadImages(images) {
   images.forEach(src => {
+    const fullPath = `backgroundimag/${src}`;
     const img = new Image();
-    img.src = `backgroundimag/${src}`;
+    img.src = fullPath;
+    img.onload = () => {
+      preloadedImages[src] = img; // 完全に読み込んだ画像をキャッシュ
+    };
   });
 }
 
-// 🔸 現在の背景画像を表示
+// 🔸 現在の背景画像を表示（キャッシュ利用）
 function showCurrentBackground() {
   const detailsDiv = document.getElementById("details");
   let currentIndex = localStorage.getItem("bgIndex");
   if (currentIndex === null) currentIndex = 0;
   else currentIndex = parseInt(currentIndex, 10);
 
-  detailsDiv.style.backgroundImage = `url(backgroundimag/${bgImages[currentIndex]})`;
+  const src = bgImages[currentIndex];
+  if (preloadedImages[src]) {
+    // すでに読み込み済みなら即適用
+    detailsDiv.style.backgroundImage = `url(${preloadedImages[src].src})`;
+  } else {
+    // 読み込み中なら通常の方法
+    detailsDiv.style.backgroundImage = `url(backgroundimag/${src})`;
+  }
+
   detailsDiv.style.backgroundSize = "50px";
   detailsDiv.style.backgroundRepeat = "repeat";
 }
@@ -548,6 +562,7 @@ function advanceBackground() {
 
   showCurrentBackground();
 }
+
 
 // ===============================
 // 🔷 履歴保持・履歴バー更新
