@@ -177,39 +177,9 @@ const contents = {
 
 
 // ===============================
-// 🔷 グローバル変数の初期化
-// ===============================
-let selectedDetailIndex = null;
-let selectedDetailCategory = null;
-
-
-// 🔸 背景画像を事前に読み込む
-const preloadBackgroundImages = [
-  'imag/left.png',
-  'imag/9.png',
-  'imag/center2.png',
-  'imag/2.png',
-  'imag/7.png',
-  'imag/right.png',
-  'imag/3.png',
-  'imag/5.png',
-  'imag/6.png',
-  'imag/center1.png'
-];
-
-preloadBackgroundImages.forEach(src => {
-  const img = new Image();
-  img.src = src;
-});
-
-
-
-
-
-// ===============================
 // 🔷 カテゴリ表示処理
 // ===============================
-function showCategory(category) {
+function showCategory(category, skipHistory = false) {
   // 左メニューの選択状態を更新
   document.querySelectorAll('.menu-item').forEach(item => {
     item.classList.remove('active');
@@ -242,10 +212,9 @@ function showCategory(category) {
     `;
 
     // 🔸 contactのリンク表示を追加
-  if (item.link) {
-    html += `<p class="form"><a href="${item.link}" target="_blank" rel="noopener noreferrer">お問い合わせフォーム↗︎</a></p>`;
-  }
-
+    if (item.link) {
+      html += `<p class="form"><a href="${item.link}" target="_blank" rel="noopener noreferrer">お問い合わせフォーム↗︎</a></p>`;
+    }
 
     // 🔸 リンク一覧を中央エリアに表示
     if (item.links && item.links.length > 0) {
@@ -261,66 +230,72 @@ function showCategory(category) {
 
     contentList.innerHTML = html;
 
-    // 🔸 画像があれば PC では右側、モバイルでは中央に表示
-// 画像はaboutのみ表示したい場合
-  let imagesHTML = '';
-  if (category === 'about' && item.images && item.images.length > 0) {
-    imagesHTML = item.images.map(src => `<img src="${src}" class="about-image">`).join('');
-
-    if (window.innerWidth <= 768) {
-      contentList.innerHTML = imagesHTML + contentList.innerHTML;
-      detailsDiv.innerHTML = '';
-    } else {
-      detailsDiv.innerHTML = imagesHTML;
-    }
-  } else {
-    detailsDiv.innerHTML = '';
+    // 履歴に追加
+  if (!skipHistory) {
+    addToHistory({ type: 'category', category });
   }
 
+  // ハッシュ更新
+  window.location.hash = category;
 
+    // 🔸 画像があれば PC では右側、モバイルでは中央に表示
+    if (category === 'about' && item.images && item.images.length > 0) {
+      const imagesHTML = item.images.map(src => `<img src="${src}" class="about-image">`).join('');
+
+      if (window.innerWidth <= 768) {
+        contentList.innerHTML = imagesHTML + contentList.innerHTML;
+        detailsDiv.innerHTML = '';
+      } else {
+        detailsDiv.innerHTML = imagesHTML;
+      }
+    } else {
+      detailsDiv.innerHTML = '';
+    }
 
   } else {
-  // 🔹 work 等のカテゴリ表示処理
-  contentList.innerHTML = `<p>${category}</p>`;
+    // 🔹 work 等のカテゴリ表示処理
+    contentList.innerHTML = `<p>${category}</p>`;
 
-  // 🔸 プレビュー用画像を事前にプリロード（ここに追加！）
-  if (contents[category]) {
-    contents[category].forEach(item => {
-      if (item.images && item.images.length > 0) {
-        const preloadImg = new Image();
-        preloadImg.src = item.images[0];
+    // 🔸 プレビュー用画像を事前にプリロード
+    if (contents[category]) {
+      contents[category].forEach(item => {
+        if (item.images && item.images.length > 0) {
+          const preloadImg = new Image();
+          preloadImg.src = item.images[0];
+        }
+      });
+    }
+
+    contents[category].forEach((item, index) => {
+      const div = document.createElement('div');
+      div.className = 'content-item';
+
+      // スマホ（768px以下）の場合はプレビュー画像を追加
+      let previewImgHTML = '';
+      if (window.innerWidth <= 768 && item.images && item.images.length > 0) {
+        previewImgHTML = `<img src="${item.images[0]}" class="mobile-preview-image" />`;
       }
+
+      div.innerHTML = `
+        <strong>${item.title}</strong><br>
+        ${item.date ? `<small>${item.category}</small>` : ''}
+        ${item.category ? `<small>|&nbsp;${item.date}</small>` : ''}
+        ${previewImgHTML}
+      `;
+
+      // 🔸 詳細表示クリックイベント
+      div.onclick = () => showDetails(category, index);
+      setupHoverPreview(div, item, index, category);
+
+      contentList.appendChild(div);
     });
   }
 
-  contents[category].forEach((item, index) => {
-    const div = document.createElement('div');
-    div.className = 'content-item';
-
-    // スマホ（768px以下）の場合はプレビュー画像を追加
-    let previewImgHTML = '';
-    if (window.innerWidth <= 768 && item.images && item.images.length > 0) {
-      previewImgHTML = `<img src="${item.images[0]}" class="mobile-preview-image" />`;
-    }
-
-    div.innerHTML = `
-      <strong>${item.title}</strong><br>
-      ${item.date ? `<small>${item.category}</small>` : ''}
-      ${item.category ? `<small>|&nbsp;${item.date}</small>` : ''}
-      ${previewImgHTML}
-    `;
-
-    // 🔸 詳細表示クリックイベント
-    div.onclick = () => showDetails(category, index);
-    setupHoverPreview(div, item, index, category);
-
-    contentList.appendChild(div);
-  });
-
+  // 🔸 履歴とハッシュは skipHistory=false の場合のみ設定
+  if (!skipHistory) {
+    addToHistory({ type: 'category', category });
+    window.location.hash = category;
   }
-
-  // 🔸 履歴に追加
-  addToHistory({ type: 'category', category });
 
   // 🔸 モバイル表示用のUI切り替え
   if (window.innerWidth <= 768) {
@@ -354,9 +329,6 @@ function setupHoverPreview(div, item, index, category) {
     previewDiv.style.display = "none";
   };
 }
-
-
-
 
 
 
@@ -423,6 +395,16 @@ setTimeout(() => {
   selectedDetailCategory = category;
   selectedDetailIndex = index;
 
+  
+
+  // クリック時にハッシュを設定（同じハッシュなら何もしない）
+const slug = detail.pagetitle || index;
+const newHash = `${category}/${slug}`;
+if (window.location.hash.slice(1) !== newHash) {
+  window.location.hash = newHash;
+}
+
+
   addToHistory({ type: 'detail', category, index });
 
   if (window.innerWidth <= 768) {
@@ -484,25 +466,32 @@ window.addEventListener("load", () => {
 window.addEventListener("hashchange", handleHash);
 
 function handleHash() {
-  const hash = window.location.hash.slice(1); // 例: "work/shining"
+  const hash = window.location.hash.slice(1); // 例: "work/0" または "work/shining"
   if (!hash) return;
 
-  const [category, slug] = hash.split('/');
+  const [category, slugOrIndex] = hash.split('/');
 
-  if (!contents[category]) return;
+  // 現在と同じ状態なら何もしない
+  if (
+    category === selectedDetailCategory &&
+    (slugOrIndex === String(selectedDetailIndex) ||
+     slugOrIndex === contents[category]?.[selectedDetailIndex]?.pagetitle)
+  ) {
+    return;
+  }
 
-  // スラッグがある場合は、そのスラッグを持つオブジェクトを探す
-  if (slug) {
-    const index = contents[category].findIndex(item => item.pagetitle === slug);
-    if (index !== -1) {
-      showCategory(category);
-      setTimeout(() => showDetails(category, index), 50);
-    } else {
-      // スラッグが見つからなければカテゴリだけ表示
-      showCategory(category);
-    }
+  // slugOrIndex が数字なら index、文字なら pagetitle で検索
+  let index;
+  if (!isNaN(parseInt(slugOrIndex, 10))) {
+    index = parseInt(slugOrIndex, 10);
   } else {
-    // スラッグなしならカテゴリのみ表示
+    index = contents[category]?.findIndex(item => item.pagetitle === slugOrIndex);
+  }
+
+  if (contents[category] && index >= 0) {
+    showCategory(category);
+    setTimeout(() => showDetails(category, index), 50);
+  } else if (contents[category]) {
     showCategory(category);
   }
 }
@@ -580,16 +569,32 @@ function addToHistory(entry) {
 
     if (h.type === 'category') {
       item.textContent = `${h.category}`;
-      item.onclick = () => showCategory(h.category);
+      item.onclick = () => {
+        showCategory(h.category, true);
+        advanceBackground(); // カテゴリ履歴は即背景切り替え
+      };
+
     } else if (h.type === 'detail') {
       const d = contents[h.category][h.index];
       item.textContent = d.title;
-      item.onclick = () => showDetails(h.category, h.index);
+      item.onclick = () => {
+        advanceBackground(); // 背景を先に変える
+        showCategory(h.category, true);
+
+        setTimeout(() => {
+          showDetails(h.category, h.index);
+        }, 50);
+      };
     }
 
     historyBar.appendChild(item);
   });
 }
+
+
+
+
+
 
 // ===============================
 // 🔷 ハンバーガーメニュー開閉処理
