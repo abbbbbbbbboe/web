@@ -1,3 +1,9 @@
+// ===============================
+// グローバル変数（最初に宣言しておく）
+// ===============================
+let selectedDetailCategory = null;
+let selectedDetailIndex = null;
+
 const contents = {
   work: [
    {
@@ -230,13 +236,7 @@ function showCategory(category, skipHistory = false) {
 
     contentList.innerHTML = html;
 
-    // 履歴に追加
-  if (!skipHistory) {
-    addToHistory({ type: 'category', category });
-  }
-
-  // ハッシュ更新
-  window.location.hash = category;
+    
 
     // 🔸 画像があれば PC では右側、モバイルでは中央に表示
     if (category === 'about' && item.images && item.images.length > 0) {
@@ -284,7 +284,10 @@ function showCategory(category, skipHistory = false) {
       `;
 
       // 🔸 詳細表示クリックイベント
-      div.onclick = () => showDetails(category, index);
+ div.onclick = () => {
+  const slug = contents[category][index].pagetitle || index;
+  window.location.hash = `${category}/${slug}`;
+};
       setupHoverPreview(div, item, index, category);
 
       contentList.appendChild(div);
@@ -294,7 +297,7 @@ function showCategory(category, skipHistory = false) {
   // 🔸 履歴とハッシュは skipHistory=false の場合のみ設定
   if (!skipHistory) {
     addToHistory({ type: 'category', category });
-    window.location.hash = category;
+    // window.location.hash = category;
   }
 
   // 🔸 モバイル表示用のUI切り替え
@@ -395,6 +398,8 @@ setTimeout(() => {
   selectedDetailCategory = category;
   selectedDetailIndex = index;
 
+
+
   
 
   // クリック時にハッシュを設定（同じハッシュなら何もしない）
@@ -423,7 +428,7 @@ if (window.location.hash.slice(1) !== newHash) {
       });
     }
   }
-    window.location.hash = `${category}/${item.pagetitle}`;  // ハッシュ更新！
+    // window.location.hash = `${category}/${item.pagetitle}`;  // ハッシュ更新！
 
     
 }
@@ -437,28 +442,27 @@ if (window.location.hash.slice(1) !== newHash) {
 window.addEventListener("load", () => {
   preloadImages(bgImages);
   showCurrentBackground();
-  // URLハッシュがあれば表示（ロード後に少し遅らせる）
-  setTimeout(() => {
-    handleHash();
-  }, 50);
+  handleHash(); // ハッシュ付きURLなら直接表示
 
-
-  document.querySelectorAll(".menu-item").forEach(item => {
-    item.addEventListener("click", advanceBackground);
+document.querySelectorAll('.menu-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const category = item.textContent.trim().toLowerCase();
+    window.location.hash = category;  // ハッシュだけ変える
   });
+});
+
 
   const parent = document.getElementById("content-list");
   if (parent) {
     parent.addEventListener("click", (e) => {
-      if (
-        e.target.classList.contains("content-item") ||
-        e.target.closest(".content-item")
-      ) {
-        advanceBackground();
+      if (e.target.classList.contains("content-item") || e.target.closest(".content-item")) {
+        // advanceBackground();
       }
     });
   }
 });
+
+
 
 
 // ===============================
@@ -474,34 +478,24 @@ function handleHash() {
 
   const [category, slugOrIndex] = hash.split('/');
 
-  // 現在と同じ状態なら何もしない
-  if (
-    category === selectedDetailCategory &&
-    (slugOrIndex === String(selectedDetailIndex) ||
-     slugOrIndex === contents[category]?.[selectedDetailIndex]?.pagetitle)
-  ) {
-    return;
-  }
-
-  // slugOrIndex が数字なら index、文字なら pagetitle で検索
-  let index;
+  let index = null;
   if (!isNaN(parseInt(slugOrIndex, 10))) {
     index = parseInt(slugOrIndex, 10);
-  } else {
+  } else if (slugOrIndex) {
     index = contents[category]?.findIndex(item => item.pagetitle === slugOrIndex);
   }
 
-  if (contents[category] && index >= 0) {
-    showCategory(category);
-    setTimeout(() => {
-      showDetails(category, index);
-      advanceBackground(); // 🔹 詳細ページを開いたときに背景変更
-    }, 50);
+
+  if (contents[category] && index !== null && index >= 0) {
+    showCategory(category, true); // skipHistory=true
+    showDetails(category, index);
+    advanceBackground(); // 背景切り替えはここだけ
   } else if (contents[category]) {
-    showCategory(category);
-    advanceBackground(); // 🔹 カテゴリだけの場合も背景変更
+    showCategory(category, true);
+    advanceBackground();
   }
 }
+
 
 
 
@@ -560,6 +554,7 @@ function showCurrentBackground() {
 
 // 🔸 背景画像を進める
 function advanceBackground() {
+  console.log("advanceBackground called");
   let currentIndex = localStorage.getItem("bgIndex");
   if (currentIndex === null) currentIndex = 0;
   else currentIndex = parseInt(currentIndex, 10);
@@ -592,26 +587,28 @@ function addToHistory(entry) {
     if (h.type === 'category') {
       item.textContent = `${h.category}`;
       item.onclick = () => {
-        showCategory(h.category, true);
-        advanceBackground(); // カテゴリ履歴は即背景切り替え
+        // 履歴から開く場合も履歴に追加する
+        showCategory(h.category, false); 
+        advanceBackground();
       };
 
-    } else if (h.type === 'detail') {
-      const d = contents[h.category][h.index];
-      item.textContent = d.title;
-      item.onclick = () => {
-        advanceBackground(); // 背景を先に変える
-        showCategory(h.category, true);
+   } else if (h.type === 'detail') {
+  const d = contents[h.category][h.index];
+  item.textContent = d.title;
+  item.onclick = () => {
+    // カテゴリ表示（履歴には追加しない）
+    showCategory(h.category, true); // ← skipHistory = true に変更
+    // 詳細表示（履歴追加する）
+    showDetails(h.category, h.index);
+    // advanceBackground();
+  };
+}
 
-        setTimeout(() => {
-          showDetails(h.category, h.index);
-        }, 50);
-      };
-    }
 
     historyBar.appendChild(item);
   });
 }
+
 
 
 
