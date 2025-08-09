@@ -429,34 +429,37 @@ if (window.location.hash.slice(1) !== newHash) {
 }
 
 
+
+
 // ===============================
 // 🔷 初期化処理と背景操作
 // ===============================
 window.addEventListener("load", () => {
-  preloadImages(bgImages); // 背景画像のプリロード
-  showCurrentBackground(); // 初期背景表示
-  handleHash();
+  preloadImages(bgImages);
+  showCurrentBackground();
+  // URLハッシュがあれば表示（ロード後に少し遅らせる）
+  setTimeout(() => {
+    handleHash();
+  }, 50);
 
-  // 🔸 メニュークリックで背景を進める
-  const menuItems = document.querySelectorAll(".menu-item");
-  menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-      advanceBackground();
-    });
+
+  document.querySelectorAll(".menu-item").forEach(item => {
+    item.addEventListener("click", advanceBackground);
   });
 
-  // 🔸 コンテンツクリックで背景を進める
   const parent = document.getElementById("content-list");
   if (parent) {
     parent.addEventListener("click", (e) => {
-      if (e.target.classList.contains("content-item") || e.target.closest(".content-item")) {
+      if (
+        e.target.classList.contains("content-item") ||
+        e.target.closest(".content-item")
+      ) {
         advanceBackground();
       }
     });
   }
-
-
 });
+
 
 // ===============================
 // 🔷 #作成
@@ -490,9 +493,13 @@ function handleHash() {
 
   if (contents[category] && index >= 0) {
     showCategory(category);
-    setTimeout(() => showDetails(category, index), 50);
+    setTimeout(() => {
+      showDetails(category, index);
+      advanceBackground(); // 🔹 詳細ページを開いたときに背景変更
+    }, 50);
   } else if (contents[category]) {
     showCategory(category);
+    advanceBackground(); // 🔹 カテゴリだけの場合も背景変更
   }
 }
 
