@@ -385,7 +385,10 @@ function showDetails(category, index) {
     </p>
     
     <div class="detail-images">${imagesHTML}</div>
-    <p class="detail-description">${detail.details}</p>
+    <p class="detail-description">
+    ${detail.details}
+    ${detail.link ? `<br><span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
+    </p>
     ${window.innerWidth <= 768 ? `<button class="back-to-list">back to work list↩︎</button>` : ''}
   `;
 

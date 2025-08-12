@@ -241,6 +241,10 @@ small{
   border-style: dotted dashed dotted  dashed;
 }
 
+.detail-description a{
+  text-decoration: none;
+}
+
 .detail-images {
   display: flex;
   flex-wrap: wrap;
@@ -557,6 +561,8 @@ border: none;
   margin-right: 70px;
  
 }
+
+
 .detail-title{
   margin-left: 70px;
   margin-right: 70px;
