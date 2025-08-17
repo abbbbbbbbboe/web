@@ -238,19 +238,24 @@ function showCategory(category, skipHistory = false) {
 
     
 
-    // 🔸 画像があれば PC では右側、モバイルでは中央に表示
-    if (category === 'about' && item.images && item.images.length > 0) {
-      const imagesHTML = item.images.map(src => `<img src="${src}" class="about-image">`).join('');
+     // 🔸 画像があれば PC では右側、モバイルでは中央に表示
+if (category === 'about' && item.images && item.images.length > 0) {
+  // PC用：全部
+  const allImagesHTML = item.images.map(src => `<img src="${src}" class="about-image">`).join('');
+  // スマホ用：最初の1枚だけ
+  const fstImageHTML = `<img src="${item.images[0]}" class="about-image">`;
 
-      if (window.innerWidth <= 768) {
-        contentList.innerHTML = imagesHTML + contentList.innerHTML;
-        detailsDiv.innerHTML = '';
-      } else {
-        detailsDiv.innerHTML = imagesHTML;
-      }
-    } else {
-      detailsDiv.innerHTML = '';
-    }
+  if (window.innerWidth <= 768) {
+    // スマホ → 1枚だけ、テキストの上に
+    contentList.innerHTML = fstImageHTML + contentList.innerHTML;
+    detailsDiv.innerHTML = '';
+  } else {
+    // PC → 全部右エリアに
+    detailsDiv.innerHTML = allImagesHTML;
+  }
+} else {
+  detailsDiv.innerHTML = '';
+}
 
   } else {
     // 🔹 work 等のカテゴリ表示処理
