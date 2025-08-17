@@ -410,8 +410,9 @@ border: none;
 }
 
 .about-image {
-  width: 300px;
-  margin-top: 45px;
+  width: 200px;
+  margin-top: 34px;
+  margin-left:34px;
 }
 
 .hamburger {
