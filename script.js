@@ -151,7 +151,7 @@ const contents = {
     {
       title: "about",
       details: "オオタソラ<br>1998年福岡生まれ。武蔵野美術大学 造形学部 基礎デザイン学科 卒業。web、グラフィックデザイン、映像の制作を主に行います。ドットやパターンの表現に興味があります。なるべく道具や構造から作るように意識して制作しています。<br><br>【展覧会歴】<br>2024年<br>・2人展「Shinin d(^_^o)」 <br>・多摩美術大学助手展2024<br>2023年 <br>・多摩美術大学助手展2023",
-      images: ["imag/pf300.gif","imag/icon.webp"]
+      images: ["imag/pf400.gif","imag/icon.webp"]
     }
   ],
   link_list: [
