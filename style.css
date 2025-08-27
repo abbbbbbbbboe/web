@@ -250,7 +250,7 @@ small{
 .detail-images {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 12px;
   margin-top: 20px;
   justify-content: center; /* 中央揃え */
   align-items: flex-start; /* 高さを無理に揃えない */
@@ -264,6 +264,21 @@ small{
   display: block;
 }
 
+.detail-video-wrapper {
+  width: 75%; /* 画像と揃える */
+  aspect-ratio: 16 / 9; /* デフォルトは 16:9 */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.detail-video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+
 /* 2枚目以降の画像を二列にする場合 */
 /* .detail-image-half {
   height: auto;           
@@ -271,6 +286,9 @@ small{
   max-width: 80%;         
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 } */
+
+
+
 
 
 #details {

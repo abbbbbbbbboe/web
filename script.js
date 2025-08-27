@@ -6,6 +6,17 @@ let selectedDetailIndex = null;
 
 const contents = {
   work: [
+    {
+  pagetitle: "rebootplan", 
+  title: "スポーツデンキデパート「リブート計画」",
+  details: "月面宇宙軍名義でスポーツデンキデパート「リブート計画」のMV用にイラストレーションを描きました。疾走感の強いROCKな曲ということで、とにかくじっとできないくて飛び出したい気持ちを絵にしました。スニーカーが好きなのでたくさん書き込みました。<br><br>I created illustrations under the name of Getsumenuchuugun for the music video of Sports Denki Department Store’s “Reboot plan.” Since it's a fast-paced, rock-style song, I aimed to capture the feeling of being unable to stay still and wanting to burst out. I love sneakers, so I drew a lot of them in detail.<br><br>【credit】<br>作詞.作曲.編曲; スポーツデンキデパート<br>歌唱; 鏡音レン<br> イラスト; 月面宇宙軍 <br>映像.ロゴデザイン; 淳",
+  images: ["workimag/rebootplan/rebootplan1.jpg", "workimag/rebootplan/rebootplan2.jpg", "workimag/rebootplan/rebootplan3.jpg", "workimag/rebootplan/rebootplan4.jpg"],
+  date: "2025",
+  category: "illustration",
+  link: "https://youtu.be/h_nitCvVzGY?si=pkRY_q2_uRsemWwl",
+  video: "https://www.youtube.com/embed/h_nitCvVzGY?si=KPOmsPEDZ1K03cQU" 
+}
+, 
    {
   pagetitle: "shining", 
   title: "二人展「shinin d(^_^o)」",
@@ -150,7 +161,7 @@ const contents = {
   about: [
     {
       title: "about",
-      details: "オオタソラ<br>1998年福岡生まれ。武蔵野美術大学 造形学部 基礎デザイン学科 卒業。web、グラフィックデザイン、映像の制作を主に行います。ドットやパターンの表現に興味があります。なるべく道具や構造から作るように意識して制作しています。<br><br>【展覧会歴】<br>2024年<br>・2人展「Shinin d(^_^o)」 <br>・多摩美術大学助手展2024<br>2023年 <br>・多摩美術大学助手展2023",
+      details: "オオタソラ<br>1998年福岡生まれ。武蔵野美術大学 造形学部 基礎デザイン学科 卒業。web、グラフィックデザイン、映像の制作を主に行います。ドットやパターンの表現に興味があります。なるべく道具や構造から作るように意識して制作しています。<br><br>Born in Fukuoka in 1998. Graduated from Musashino Art University, Faculty of Design, Department of Basic Design. Primarily creates web, graphic design, and video content. Interested in dot and pattern expression. Consciously strives to create works by building from tools and structures whenever possible.<br><br>【展覧会歴】<br>2024年<br>・2人展「Shinin d(^_^o)」 <br>・多摩美術大学助手展2024<br>2023年 <br>・多摩美術大学助手展2023",
       images: ["imag/pf400.gif","imag/icon.webp"]
     }
   ],
@@ -173,7 +184,7 @@ const contents = {
   contact: [
     {
       title: "お問い合わせ",
-      details: "メール：ootaoota0038[a]gmail.com<br>[a]を@に変更してお使いください。<br><br>以下のお問い合わせフォームからもご連絡いただけます。",
+      details: "E-mail：ootaoota0038[a]gmail.com<br>[a]を@に変更してお使いください。<br><br>以下の問い合わせフォームからもご連絡いただけます。<br>You can also contact us using the inquiry form below.",
       images: [],
       link: "https://forms.gle/17ErUsJnvgpZaqVM9"
     }
@@ -351,7 +362,7 @@ function setupHoverPreview(div, item, index, category) {
 function showDetails(category, index) {
   const container = document.querySelector('.container');
 
-  // 🔸 プレビューを非表示にする処理
+  // プレビュー非表示
   const previewDiv = document.getElementById('preview-item');
   const previewImg = document.getElementById('preview-img');
   if (previewDiv && previewImg) {
@@ -364,59 +375,64 @@ function showDetails(category, index) {
   const detailDiv = document.getElementById('detail-item');
   detailDiv.scrollTop = 0;
 
-  // 一覧の選択状態を更新
-  document.querySelectorAll('.content-item').forEach(item => {
-    item.classList.remove('active');
-  });
+  // 選択状態を更新
+  document.querySelectorAll('.content-item').forEach(item => item.classList.remove('active'));
   const selectedItem = document.querySelectorAll('.content-item')[index];
   if (selectedItem) selectedItem.classList.add('active');
 
-  // 画像リストHTML生成
-  let imagesHTML = "";
-  if (detail.images && detail.images.length > 0) {
-    imagesHTML = detail.images.map((src, idx) => {
-      const className = idx === 0 ? "detail-image-large" : "detail-image-half";
-      return `<img src="${src}" class="${className}">`;
-    }).join('');
-  }
+  // 画像 & 動画リストHTML生成
+let mediaHTML = "";
 
-  // 🔸 詳細内容を描画（戻るボタンも含めて1回で）
-  detailDiv.innerHTML = `
-    <p class="detail-title">${detail.title}</p>
-    <p class="detail-meta">
-      ${detail.date ? `<span class="detail-date">${detail.date}</span><br>` : ''}
-      ${detail.category ? `<span class="detail-category">${detail.category}</span><br><br>` : ''}
-      ${detail.link ? `<span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
-    </p>
-    
-    <div class="detail-images">${imagesHTML}</div>
-    <p class="detail-description">
-    ${detail.details}
-    ${detail.link ? `<br><span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
-    </p>
-    ${window.innerWidth <= 768 ? `<button class="back-to-list">back to work list↩︎</button>` : ''}
-  `;
+// 🎬 動画（画像と同じ並びで追加）
+if (detail.video) {
+  mediaHTML += `
+    <div class="detail-video-wrapper detail-image-large">
+      <iframe src="${detail.video}" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>`;
+}
 
-  // 🔸 innerHTML を書き換えた後にスクロールをリセット（タイミングが重要！）
-setTimeout(() => {
-  detailDiv.scrollTop = 0;
-  window.scrollTo(0, 0); // スマホ表示では念のため全体も上に
-}, 0);
+// 画像
+if (detail.images && detail.images.length > 0) {
+  mediaHTML += detail.images.map((src, idx) => {
+    const className = idx === 0 ? "detail-image-large" : "detail-image-half";
+    return `<img src="${src}" class="${className}">`;
+  }).join('');
+}
+
+
+
+// 🔸 詳細内容を描画
+detailDiv.innerHTML = `
+  <p class="detail-title">${detail.title}</p>
+  <p class="detail-meta">
+    ${detail.date ? `<span class="detail-date">${detail.date}</span><br>` : ''}
+    ${detail.category ? `<span class="detail-category">${detail.category}</span><br><br>` : ''}
+    ${detail.link ? `<span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
+  </p>
+  
+  <div class="detail-images">${mediaHTML}</div>
+  <p class="detail-description">${detail.details}</p>
+  ${window.innerWidth <= 768 ? `<button class="back-to-list">back to work list↩︎</button>` : ''}
+`;
+
+
+  // スクロールリセット
+  setTimeout(() => {
+    detailDiv.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }, 0);
 
   selectedDetailCategory = category;
   selectedDetailIndex = index;
 
-
-
-  
-
-  // クリック時にハッシュを設定（同じハッシュなら何もしない）
-const slug = detail.pagetitle || index;
-const newHash = `${category}/${slug}`;
-if (window.location.hash.slice(1) !== newHash) {
-  window.location.hash = newHash;
-}
-
+  // ハッシュ更新
+  const slug = detail.pagetitle || index;
+  const newHash = `${category}/${slug}`;
+  if (window.location.hash.slice(1) !== newHash) {
+    window.location.hash = newHash;
+  }
 
   addToHistory({ type: 'detail', category, index });
 
@@ -426,7 +442,6 @@ if (window.location.hash.slice(1) !== newHash) {
     container.classList.add('show-detail');
     window.scrollTo(0, 0);
 
-    // 🔸 一覧に戻るボタンの動作
     const backButton = document.querySelector('.back-to-list');
     if (backButton) {
       backButton.addEventListener('click', () => {
@@ -436,10 +451,8 @@ if (window.location.hash.slice(1) !== newHash) {
       });
     }
   }
-    // window.location.hash = `${category}/${item.pagetitle}`;  // ハッシュ更新！
-
-    
 }
+
 
 
 
