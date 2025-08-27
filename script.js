@@ -413,7 +413,10 @@ detailDiv.innerHTML = `
   </p>
   
   <div class="detail-images">${mediaHTML}</div>
-  <p class="detail-description">${detail.details}</p>
+  <p class="detail-description">
+    ${detail.details}<br><br>
+    ${detail.link ? `<span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
+   </p>
   ${window.innerWidth <= 768 ? `<button class="back-to-list">back to work list↩︎</button>` : ''}
 `;
 
