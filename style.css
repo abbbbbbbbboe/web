@@ -179,6 +179,7 @@ small{
   flex-grow: 1;
   background-color: #f3f7fc;
   background-size: 50px;
+   height: 100%;
 }
 
 .detail-title {
