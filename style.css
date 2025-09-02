@@ -898,7 +898,7 @@ border: none;
   .left, .center, .right {
     width: 100%;
     
-    height: auto;
+    height: 100%;
     display: none; /* 最初は非表示にする */
     margin-bottom: 57px;
   }
@@ -970,6 +970,8 @@ border: none;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  height: 100%;
+  
 }
 /* 詳細画面 */
 .detail-title {
