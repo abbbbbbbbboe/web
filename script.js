@@ -4,10 +4,18 @@ let selectedDetailIndex = null;
 
 
 
+
+
 // ===============================
 // 🔷 カテゴリ表示処理
 // ===============================
 function showCategory(category, skipHistory = false) {
+  // top の場合は showTop に移譲
+  if (category === 'top') {
+    showTop(skipHistory);
+    return;
+  }
+
   // 左メニューの選択状態を更新
   document.querySelectorAll('.menu-item').forEach(item => {
     item.classList.remove('active');
@@ -19,85 +27,72 @@ function showCategory(category, skipHistory = false) {
   const container = document.querySelector('.container');
   const contentList = document.getElementById('content-list');
   const detailsDiv = document.getElementById('details');
+  const menu = document.getElementById('menu'); // 左端エリア
+
+  // 🔹 左端メニュー表示制御（スマホ/PC共通）
+  if (window.innerWidth <= 768) {
+    if (category === 'top') {
+      if (menu) menu.classList.add('menu-view');  // topのみ表示
+    } else {
+      if (menu) menu.classList.remove('menu-view'); // それ以外は非表示
+    }
+  } else {
+    // PC版は常に表示
+    if (menu) menu.classList.add('menu-view');
+  }
+
+  // コンテンツ初期化
   contentList.innerHTML = '';
   detailsDiv.innerHTML = `
-   <div id="preview-item" >
-    <img id="preview-img" style="width: 100%; height: 100%;" />
-  </div>
-  <div id="detail-item"></div>
-`;
+    <div id="preview-item">
+      <img id="preview-img" style="width: 100%; height: 100%;" />
+    </div>
+    <div id="detail-item"></div>
+  `;
 
   selectedDetailIndex = null;
   selectedDetailCategory = null;
 
   // 🔹 about/contact/link_list の表示処理
-  if (category === 'about' || category === 'contact' || category === 'link_list') {
+  if (['about','contact','link_list'].includes(category)) {
     const item = contents[category][0];
+    let html = `<p>${item.title}</p><p>${item.details}</p>`;
 
-    let html = `
-      <p>${item.title}</p>
-      <p>${item.details}</p>
-    `;
-
-    // 🔸 contactのリンク表示を追加
     if (item.link) {
       html += `<p class="form"><a href="${item.link}" target="_blank" rel="noopener noreferrer">お問い合わせフォーム↗︎</a></p>`;
     }
 
-    // 🔸 リンク一覧を中央エリアに表示
     if (item.links && item.links.length > 0) {
-      const linkListHTML = `
-        <div class="links">
-          ${item.links.map(link =>
-            `<div class="linkp"><p><a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.title}</a></p></div>`
-          ).join('')}
-        </div>
-      `;
-      html += linkListHTML;
+      html += `<div class="links">${item.links.map(link =>
+        `<div class="linkp"><p><a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.title}</a></p></div>`
+      ).join('')}</div>`;
     }
 
     contentList.innerHTML = html;
 
-    
+    // about の画像表示
+    if (category === 'about' && item.images && item.images.length > 0) {
+      const allImagesHTML = item.images.map(src => `<img src="${src}" class="about-image">`).join('');
+      const fstImageHTML = `<img src="${item.images[0]}" class="about-image">`;
 
-     // 🔸 画像があれば PC では右側、モバイルでは中央に表示
-if (category === 'about' && item.images && item.images.length > 0) {
-  // PC用：全部
-  const allImagesHTML = item.images.map(src => `<img src="${src}" class="about-image">`).join('');
-  // スマホ用：最初の1枚だけ
-  const fstImageHTML = `<img src="${item.images[0]}" class="about-image">`;
-
-  if (window.innerWidth <= 768) {
-    // スマホ → 1枚だけ、テキストの上に
-    contentList.innerHTML = fstImageHTML + contentList.innerHTML;
-    detailsDiv.innerHTML = '';
-  } else {
-    // PC → 全部右エリアに
-    detailsDiv.innerHTML = allImagesHTML;
-  }
-} else {
-  detailsDiv.innerHTML = '';
-}
-
-  } else {
-    // 🔹 work 等のカテゴリ表示処理
-    contentList.innerHTML = `<p>${category}</p>`;
-
-    // 🔸 プレビュー用画像を事前にプリロード
-    if (contents[category]) {
-      contents[category].forEach(item => {
-        if (item.images && item.images.length > 0) {
-          const preloadImg = new Image();
-          preloadImg.src = item.images[0];
-        }
-      });
+      if (window.innerWidth <= 768) {
+        contentList.innerHTML = fstImageHTML + contentList.innerHTML;
+        detailsDiv.innerHTML = '';
+      } else {
+        detailsDiv.innerHTML = allImagesHTML;
+      }
+    } else {
+      detailsDiv.innerHTML = '';
     }
 
-    contents[category].forEach((item, index) => {
+  } else {
+    // 🔹 work / blog 共通のカテゴリ表示処理
+    let items = category === "work" ? contents[category] || [] : blogContents || [];
+
+    items.forEach((item, index) => {
       const div = document.createElement('div');
       div.className = 'content-item';
 
-      // スマホ（768px以下）の場合はプレビュー画像を追加
       let previewImgHTML = '';
       if (window.innerWidth <= 768 && item.images && item.images.length > 0) {
         previewImgHTML = `<img src="${item.images[0]}" class="mobile-preview-image" />`;
@@ -105,36 +100,99 @@ if (category === 'about' && item.images && item.images.length > 0) {
 
       div.innerHTML = `
         <strong>${item.title}</strong><br>
-        ${item.date ? `<small>${item.category}</small>` : ''}
-        ${item.category ? `<small>|&nbsp;${item.date}</small>` : ''}
+        ${item.date ? `<small>${item.date}</small>` : ''}
+        ${item.category ? `<small>&nbsp;|&nbsp;${item.category}</small>` : ''}
         ${previewImgHTML}
       `;
 
-      // 🔸 詳細表示クリックイベント
- div.onclick = () => {
-  const slug = contents[category][index].pagetitle || index;
-  window.location.hash = `${category}/${slug}`;
-};
-      setupHoverPreview(div, item, index, category);
+      div.onclick = () => {
+        if (category === "work") showDetails(category, index);
+        else if (category === "blog") showBlogDetails(index);
+      };
+
+      if (category === "work") setupHoverPreview(div, item, index, category);
 
       contentList.appendChild(div);
     });
   }
 
-  // 🔸 履歴とハッシュは skipHistory=false の場合のみ設定
-  if (!skipHistory) {
-    addToHistory({ type: 'category', category });
-    // window.location.hash = category;
-  }
+  // 履歴追加
+  if (!skipHistory) addToHistory({ type: 'category', category });
 
-  // 🔸 モバイル表示用のUI切り替え
+  // モバイル表示用切替（top以外）
   if (window.innerWidth <= 768) {
-    container.classList.remove('show-detail');
-    container.classList.remove('show-menu');
+    container.classList.remove('show-detail','show-menu');
     container.classList.add('show-list');
     window.scrollTo(0, 0);
+  } else {
+    // PCは show-list を消す
+    container.classList.remove('show-list');
   }
 }
+
+
+// ===============================
+// 🔷 モバイルTOP表示 & 履歴追加
+// ===============================
+function showTop(skipHistory = false) {
+  const container = document.querySelector('.container');
+  const menuItems = document.querySelectorAll('.menu-item');
+  const menu = document.getElementById('menu');
+
+  // 既存の active を削除
+  menuItems.forEach(item => item.classList.remove('active'));
+
+  // TOP用 active
+  const topItem = document.querySelector('.menu-item.top');
+  if (topItem) topItem.classList.add('active');
+
+  // 左端メニュー表示（スマホ/PC共通）
+  if (window.innerWidth <= 768) {
+    if (menu) menu.classList.add('menu-view');
+  } else {
+    if (menu) menu.classList.add('menu-view');
+  }
+
+  // モバイルTOPコンテンツ生成
+  if (window.innerWidth <= 768) {
+    const contentList = document.getElementById('content-list');
+    const detailsDiv = document.getElementById('details');
+    contentList.innerHTML = ` <div class="panel left" id="menu">
+        <div class="otasora"><a href="index.html">otasora.website</a></div>
+        <div class="menu-items">
+      <div class="menu-item" onclick="showCategory('work')">work</div>
+      <div class="menu-item" onclick="showCategory('about')">about</div>
+      <div class="menu-item" onclick="showCategory('link_list')">link_list</div>
+      <div class="menu-item" onclick="showCategory('contact')">contact</div>
+      <div class="kiritori"><p>--------＊--------</p></div>
+      <div class="menu-item" onclick="showCategory('blog')">blog</div>
+     </div>
+     
+
+     <div class="news"><p>＜news＞</p><p>ここにお知らせを載せます。今は、職や仕事を探しています。</p></div>
+<div class="copyright">© 2025 オオタソラ</div>`;
+    detailsDiv.innerHTML = '';
+  }
+
+  // 画面状態切替
+  container.classList.remove('show-list','show-detail','show-menu');
+  container.classList.add('show-top');
+
+  // 履歴追加
+  if (!skipHistory) addToHistory({ type: 'top' });
+
+  advanceBackground();
+}
+
+
+
+
+
+
+
+// ===============================
+// 🔷 マウスホバー画像出現
+// ===============================
 
 function setupHoverPreview(div, item, index, category) {
   const previewDiv = document.getElementById("preview-item");
@@ -170,6 +228,11 @@ function setupHoverPreview(div, item, index, category) {
 // ===============================
 // 🔷 詳細表示処理
 // ===============================
+
+// -------------------------------
+// workdetail
+// -------------------------------
+
 function showDetails(category, index) {
   const container = document.querySelector('.container');
 
@@ -262,10 +325,286 @@ detailDiv.innerHTML = `
         container.classList.remove('show-detail');
         container.classList.add('show-list');
         window.scrollTo(0, 0);
+        // URLのハッシュをリスト画面用に戻す
+    window.location.hash = "work"; // もしくは "" でもOK
       });
     }
   }
 }
+
+// -------------------------------
+// blogdetail
+// -------------------------------
+
+function showBlogDetails(index) {
+  const container = document.querySelector('.container');
+
+  const detail = blogContents[index]; // blog用配列
+  const detailDiv = document.getElementById('detail-item');
+  detailDiv.scrollTop = 0;
+
+  // 選択状態を更新
+  document.querySelectorAll('.content-item').forEach(item => item.classList.remove('active'));
+  const selectedItem = document.querySelectorAll('.content-item')[index];
+  if (selectedItem) selectedItem.classList.add('active');
+
+  // -------------------------------
+  // 描画（HTMLを自由に表示可能）
+  // -------------------------------
+  detailDiv.innerHTML = `
+  <div class="blog-wrap">
+  <div class="blog-head"><img src="imag/bloghead2.png" /></div>
+  <div class="blog">
+  <div class="blog-datetime" id="blog-datetime"></div>
+        
+  <div class="blog-text">
+    <p class="blog-title">〰️${detail.title}〰️</p>
+    <p class="blog-meta">
+      ${detail.date ? `<span class="blog-date">${detail.date}</span><br>` : ''}
+      ${detail.category ? `<span class="blog-category">＊${detail.category}＊</span><br><br>` : ''}
+    </p>
+    <div class="blog-content">${detail.content || ""}</div>
+       <div class="blog-form"><a href="https://forms.gle/17ErUsJnvgpZaqVM9" target="_blank">お問い合わせform↗︎</a></div>
+    </div>
+
+    </div>
+
+    </div>
+
+    ${window.innerWidth <= 768 ? `<button class="back-to-blog-list">back to blog list↩︎</button>` : ''}
+
+  `;
+
+  // スクロールリセット
+  setTimeout(() => {
+    detailDiv.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }, 0);
+
+  // ハッシュ更新
+  const slug = detail.pagetitle || index;
+  window.location.hash = `blog/${slug}`;
+
+  // モバイル戻るボタン
+  if (window.innerWidth <= 768) {
+    container.classList.remove('show-menu');
+    container.classList.remove('show-list');
+    container.classList.add('show-detail');
+    const backButton = document.querySelector('.back-to-blog-list');
+   if (backButton) {
+  backButton.onclick = () => {
+    container.classList.remove('show-detail');
+    container.classList.add('show-list');
+    window.scrollTo(0, 0);
+
+    // URLのハッシュをリスト画面用に戻す
+    window.location.hash = "blog"; // もしくは "" でもOK
+  };
+}
+  }
+  startBlogDatetime();
+
+  addToHistory({ type: "detail", category: "blog", index });
+
+  idleFlowers.start();
+}
+
+// ===============================
+// 🔷 ブログ内日時表記
+// ===============================
+
+function startBlogDatetime() {
+  const datetimeDiv = document.getElementById('blog-datetime');
+  if (!datetimeDiv) return;
+
+  // 日時更新関数
+  function updateBlogDatetime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hour = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+
+    datetimeDiv.textContent = `now!{${year}/${month}/${day} ${hour}:${min}}`;
+  }
+
+  // 初回更新
+  updateBlogDatetime();
+
+  // 次の分の切り替えタイミングまでの残りミリ秒を計算
+  const now = new Date();
+  const msUntilNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+
+  // そのタイミングでまず1回更新
+  setTimeout(() => {
+    updateBlogDatetime();
+
+    // 以降は1分ごとに正確に更新
+    setInterval(updateBlogDatetime, 60000);
+  }, msUntilNextMinute);
+}
+
+
+
+
+
+
+// ===============================
+// 🔷 #IdleFlowers for #blog
+// ===============================
+(function () {
+  const cfg = {
+    idleTime: 10000,          
+    srcList: [                 
+      "imag/blog_hana-2.gif",
+      "imag/blog_hana2-2.gif",
+      "imag/blog_hana3.gif"
+    ],
+    widthOptions: [20, 30],
+    minBlur: 0.3,
+    maxBlur: 2,
+    z: 2147483647,
+    maxAttempts: 10
+  };
+
+  let idleTimer = null;
+  let running = false;
+  let idleActive = false;
+  let listening = false;
+  const activeGifs = new Set();
+
+ const log = (...a) => {}; // ← これで全ての console.log 出力を無効化
+
+
+  function isOverlapping(x1, y1, w1, h1, x2, y2, w2, h2) {
+    return !(x1 + w1 < x2 || x2 + w2 < x1 || y1 + h1 < y2 || y2 + h2 < y1);
+  }
+
+  function showOne() {
+    const img = new Image();
+    const src = cfg.srcList[Math.floor(Math.random() * cfg.srcList.length)];
+    img.src = `${src}?t=${Date.now()}`;
+
+    const size = cfg.widthOptions[Math.floor(Math.random() * cfg.widthOptions.length)];
+    img.style.width = size + "px";
+    img.style.height = size + "px";
+
+    let attempt = 0;
+    let posX, posY, overlapping;
+
+    do {
+      posX = Math.random() * (window.innerWidth - size);
+      posY = Math.random() * (window.innerHeight - size);
+
+      overlapping = false;
+      for (let existing of activeGifs) {
+        const rect = existing.getBoundingClientRect();
+        if (isOverlapping(posX, posY, size, size, rect.left, rect.top, rect.width, rect.height)) {
+          overlapping = true;
+          break;
+        }
+      }
+      attempt++;
+    } while (overlapping && attempt < cfg.maxAttempts);
+
+    img.style.position = "fixed";
+    img.style.left = posX + "px";
+    img.style.top  = posY + "px";
+    img.style.zIndex = cfg.z;
+    img.style.pointerEvents = "none";
+
+    const blur = cfg.minBlur + Math.random() * (cfg.maxBlur - cfg.minBlur);
+    img.style.filter = `blur(${blur}px)`;
+
+    document.body.appendChild(img);
+    activeGifs.add(img);
+
+    const timeoutId = setTimeout(() => {
+      img.remove();
+      activeGifs.delete(img);
+    }, 1500);
+    img._timeoutId = timeoutId;
+
+    img.onload = () => log("GIF appended and loaded:", img.src);
+  }
+
+  function loop() {
+    if (!running || !idleActive) return;
+    showOne();
+
+    let next;
+    if (window.innerWidth <= 768) {
+      next = 600 + Math.random() * 1100;
+    } else {
+      next = 30 + Math.random() * 300;
+    }
+
+    setTimeout(loop, next);
+  }
+
+  function resetIdleTimer() {
+    if (!running) return;
+
+    activeGifs.forEach(img => {
+      clearTimeout(img._timeoutId);
+      img.remove();
+    });
+    activeGifs.clear();
+
+    idleActive = false;
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => {
+      idleActive = true;
+      log("idle ON → loop start");
+      loop();
+    }, cfg.idleTime);
+
+    log("idle reset");
+  }
+
+  function addListeners() {
+    if (listening) return;
+    listening = true;
+
+    const events = ["mousemove", "keydown", "click", "touchstart", "scroll"];
+    events.forEach(e => window.addEventListener(e, resetIdleTimer, { passive: true }));
+  }
+
+  function removeListeners() {
+    if (!listening) return;
+    listening = false;
+
+    const events = ["mousemove", "keydown", "click", "touchstart", "scroll"];
+    events.forEach(e => window.removeEventListener(e, resetIdleTimer));
+  }
+
+  function start() {
+    if (running) return;
+    running = true;
+    log("idleFlowers start");
+    addListeners();
+    resetIdleTimer();
+  }
+
+  function stop() {
+    if (!running) return;
+    running = false;
+    idleActive = false;
+    clearTimeout(idleTimer);
+    removeListeners();
+    activeGifs.forEach(img => img.remove());
+    activeGifs.clear();
+    log("idleFlowers stop");
+  }
+
+  // グローバルで制御できるように公開
+  window.idleFlowers = { start, stop, test: showOne, cfg };
+})();
+
+
+
+
 
 
 
@@ -300,36 +639,62 @@ document.querySelectorAll('.menu-item').forEach(item => {
 
 
 
+
+
+
 // ===============================
 // 🔷 #作成
 // ===============================
-
-
 window.addEventListener("hashchange", handleHash);
+window.addEventListener("load", handleHash); // ページリロード時も対応
 
 function handleHash() {
-  const hash = window.location.hash.slice(1); // 例: "work/0" または "work/shining"
+  const hash = window.location.hash.slice(1); // 例: "work/0" または "blog/my-post"
   if (!hash) return;
 
   const [category, slugOrIndex] = hash.split('/');
-
   let index = null;
-  if (!isNaN(parseInt(slugOrIndex, 10))) {
-    index = parseInt(slugOrIndex, 10);
-  } else if (slugOrIndex) {
-    index = contents[category]?.findIndex(item => item.pagetitle === slugOrIndex);
-  }
 
+  if (category === "blog") {
+    if (!isNaN(parseInt(slugOrIndex, 10))) {
+      index = parseInt(slugOrIndex, 10);
+    } else if (slugOrIndex) {
+      index = blogContents.findIndex(item => item.pagetitle === slugOrIndex);
+    }
 
-  if (contents[category] && index !== null && index >= 0) {
-    showCategory(category, true); // skipHistory=true
-    showDetails(category, index);
-    advanceBackground(); // 背景切り替えはここだけ
-  } else if (contents[category]) {
-    showCategory(category, true);
-    advanceBackground();
+    if (index !== null && index >= 0) {
+      showCategory(category, true);
+      showBlogDetails(index);
+      advanceBackground();
+    } else {
+      showCategory(category, true);
+      advanceBackground();
+    }
+
+    // ★ blog ページなら GIF 起動
+    if (window.idleFlowers) idleFlowers.start();
+
+  } else { // work / about / contact など
+    if (!isNaN(parseInt(slugOrIndex, 10))) {
+      index = parseInt(slugOrIndex, 10);
+    } else if (slugOrIndex) {
+      index = contents[category]?.findIndex(item => item.pagetitle === slugOrIndex);
+    }
+
+    if (contents[category] && index !== null && index >= 0) {
+      showCategory(category, true);
+      showDetails(category, index);
+      advanceBackground();
+    } else if (contents[category]) {
+      showCategory(category, true);
+      advanceBackground();
+    }
+
+    // ★ blog 以外では GIF 停止
+    if (window.idleFlowers) idleFlowers.stop();
   }
 }
+
 
 
 
@@ -420,29 +785,51 @@ function addToHistory(entry) {
     item.className = 'history-item';
 
     if (h.type === 'category') {
+      // カテゴリ履歴
       item.textContent = `${h.category}`;
       item.onclick = () => {
-        // 履歴から開く場合も履歴に追加する
         showCategory(h.category, false); 
         advanceBackground();
       };
 
-   } else if (h.type === 'detail') {
-  const d = contents[h.category][h.index];
-  item.textContent = d.title;
-  item.onclick = () => {
-    // カテゴリ表示（履歴には追加しない）
-    showCategory(h.category, true); // ← skipHistory = true に変更
-    // 詳細表示（履歴追加する）
-    showDetails(h.category, h.index);
-    // advanceBackground();
-  };
-}
+    } else if (h.type === 'detail') {
+      let d;
 
+      // 🔹 blogの場合は blogContents を参照
+      if (h.category === 'blog') {
+        d = blogContents[h.index];
+        item.textContent = d.title;
+        item.onclick = () => {
+          showCategory('blog', true); // カテゴリ表示（履歴には追加しない）
+          showBlogDetails(h.index);   // 詳細表示
+        };
+
+      // 🔹 workなど従来のcontents
+      } else {
+        d = contents[h.category][h.index];
+        item.textContent = d.title;
+        item.onclick = () => {
+          showCategory(h.category, true); // カテゴリ表示（履歴には追加しない）
+          showDetails(h.category, h.index); // 詳細表示
+        };
+      }
+
+    } else if (h.type === 'top') {
+      // 🔹 TOP履歴
+      item.textContent = 'top';
+      item.onclick = () => {
+        showTop(false); // TOP画面を表示
+      };
+    }
 
     historyBar.appendChild(item);
   });
 }
+
+
+
+
+
 
 
 

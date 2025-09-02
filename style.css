@@ -43,8 +43,15 @@ a{
   background-color: #e8f2ff;
   background-size: 3px;
   border-right: 7px solid #d9daef;
+    display: flex;
+  flex-direction: column; 
 }
 
+.kiritori{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
 
 
 .otasora{
@@ -132,7 +139,7 @@ strong{
   font-weight: 700;
   font-style: normal;
 }
-
+  
 small{
   font-size: 16px;
   margin-top: 3px;
@@ -158,11 +165,13 @@ small{
 }
 
 
+
+
 /* 真ん中の要素をクリックすると色が変わる */
 .content-item.active {
-  background-color: #fff;
+  background-color: #f9fbfc;
   background-image: url("imag/3.png");
-  border: 4px solid #fff;
+  border: 4px solid #f9fbfc;
 }
 
 
@@ -247,7 +256,7 @@ small{
   text-decoration: none;
 }
 
-.detail-images {
+.detail-images, .blog-wrap{
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -256,6 +265,242 @@ small{
   align-items: flex-start; /* 高さを無理に揃えない */
   padding-bottom: 40px;
 }
+
+.blog-wrap{
+  height: calc(100% - 100px);
+  margin-top: 50px;
+
+  gap: 0px;
+}
+
+.random-gif {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+  display: none; /* 初期は非表示 */
+  transition: filter 0.3s; /* ブラーの切り替えを滑らかに */
+}
+
+
+
+.blog{
+   width: 750px;
+    height: 100%;
+    background-color: #fdfeff;
+    padding: 20px 30px;
+    /* 縦スクロールの設定 */
+    overflow-y: scroll;
+    border-style: none double dashed  double;
+    border-width: 0 4px 1px 4px; /* 上 右 下 左 */
+border-color: #474747 #474747 #474747 #474747; /* 色 */
+     position: relative; 
+     
+
+}
+
+.blog-datetime {
+  position: sticky; /* scroll内で追従 */
+  top: 35px;        /* 上からの距離 */
+  right: 350px;      /* 右からの距離 */
+  text-align: right;
+  font-size: 14px;
+  font-weight: 300;
+  color: #d2d3ec;
+  z-index: 10;
+  float: right;
+ 
+}
+
+.blog-content p{
+  font-size: 16px;
+  margin-top:28px;
+  line-height: 28px;
+  letter-spacing: 0.1rem;
+}
+
+.blog-content h1{
+  font-size: 18px;
+  font-weight: 200;
+  margin-top: 56px;
+  line-height: 28px;
+  color:#4848b7;
+}
+.blog-content h2{
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 28px;
+  line-height: 28px;
+  color:#505095;
+}
+
+.blog-title{
+font-weight: 500;
+  font-size: 18px;
+}
+
+.blog-date{
+  font-weight: 150;
+  font-size: 20px;
+  display: inline-block;
+  transform: scale(1, 0.8);
+}
+
+.blog-text{
+  width: 100%;
+  padding: 4px 50px 0 50px;
+  position: relative;
+  z-index: 1;
+}
+
+hr.blog-hr2{
+  height:12px;
+  border-style:none ; 
+background-image:url(imag/blog-hr3.png);
+margin-top:20px;
+margin-bottom: 13px;
+
+}
+hr.blog-hr1{
+  height:6px;
+  border-style:none ; 
+background-image:url(imag/blog-hr3.png);
+margin-top:20px;
+margin-bottom: 13px;
+
+}
+
+.text-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.text-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: -10px;     
+  right: -10px;   
+  bottom: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+     #d2d3ec,
+    #d2d3ec 1px,
+    transparent 1px,
+    transparent 28px
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blog-text img{
+  width: 90%;
+  margin: 10px 0 0px 10px;
+}
+
+.blog-text a{
+  text-decoration-style: dotted;
+  color: #777777;
+  font-weight: 500;
+  letter-spacing: 0.15rem;
+}
+
+.blog-text a:hover{
+  text-decoration-style: dotted;
+  color: #6763e5;
+}
+
+.blog-video-wrapper iframe{
+  width: 90%; /* 画像と揃える */
+  aspect-ratio: 16 / 9; /* デフォルトは 16:9 */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+   margin: 10px 0 30px 10px;
+}
+
+
+.blog-head{
+width: 750px;
+position: absolute;
+  top:25px;
+  z-index: 30;
+   object-fit: cover; /* はみ出した部分をトリミング */
+  object-position: center; /* 中央を基準にトリミング */
+  display: block;
+   image-rendering: pixelated;
+  image-rendering: crisp-edges; 
+}
+
+.blog-form{
+ 
+  font-size: 14px;
+  font-weight: 300;
+  color: #d2d3ec;
+  
+}
+
+.back-to-blog-list {
+  display: block;
+  margin: 0px auto 0px; 
+  padding: 6px 18px;
+  font-size: 14px;
+     background-image: url("imag/center2.png");
+  background-color: #e8f2ff;
+  background-size: 3px;
+  border: 3px solid #e8f2ff;
+  letter-spacing: 0.5px;
+  font-family: "Inter", sans-serif;
+  color: #474747;
+  position: relative;
+}
+
+
+.back-to-blog-list:hover {
+  background-color: #666;
+}
+
+
+@media screen and (max-width: 1340px) {
+
+.blog{
+  width: 90%;
+}
+
+.blog-head{
+ width: 90%;
+height: 50px;
+gap: 0px;
+overflow: hidden;
+}
+
+.blog-text{
+
+  padding: 4px 3% 0 3%;
+
+}
+
+
+.blog-head img{
+  width: 100%;         /* 親要素の横幅に合わせる */
+  height: 100%;        /* 親要素の高さに合わせる */
+  object-fit: cover;   /* はみ出した部分をトリミング */
+  object-position: center; /* 中央を基準にトリミング */
+  display: block;
+ 
+}
+
+.blog-datetime {
+  position: sticky; /* scroll内で追従 */
+  top: 35px;        /* 上からの距離 */
+  left: 3%;   
+ right:0;
+
+}
+
+
+
+}
+
+
 
 .detail-image-large, .detail-image-half {
   width: 75%;             /* 1枚目は全幅 */
@@ -440,18 +685,22 @@ border: none;
   top: 10px;
   right: 10px;
   z-index: 1002;
-  background: url('imag/hamburger-icon.png') no-repeat center center;
+  background: url('imag/hamburger-icon2.png') no-repeat center center;
   background-size: contain;
   width: 40px;
   height: 40px;
   border: none;
   cursor: pointer;
   display: none;
+   image-rendering: pixelated;
+  image-rendering: crisp-edges; 
 }
 
 /* 開いているときは ×アイコンに切り替える */
 .hamburger.open {
-  background-image: url('imag/close-icon.png');
+  background-image: url('imag/close-icon2.png');
+   image-rendering: pixelated;
+  image-rendering: crisp-edges; 
 }
 
 /* モバイル用メニュー */
@@ -460,7 +709,7 @@ border: none;
   top: 0;
   right: 0;
   width: 50%;
-  height: 300px;
+  height: 390px;
   z-index: 1001;
   display: none;
   flex-direction: column;
@@ -475,9 +724,15 @@ border: none;
 
 .mobile-menu .menu-item {
   color: #f3f7fc;
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
   border: 3px solid #d9daef;
+}
+
+.mobile-menu-item{
+  height: 40px;
+  font-size: 15px;
+ 
 }
 
 .mobile-menu .menu-item.active {
@@ -488,6 +743,28 @@ border: none;
   color: #474747;
 }
 
+.mobile-kiritori{
+  text-align: center;
+  margin-top: 7px;
+  margin-bottom: 5px;
+  color: #f3f7fc;
+}
+
+
+
+/* .mobile-top{
+  text-decoration: none;
+  color: #f3f7fc;
+  position: relative;
+} */
+
+/* .mobile-top a{
+  position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+} */
 
 /* ▼追加部分：画像の表示スタイル */
 #preview-item img {
@@ -518,6 +795,7 @@ border: none;
 }
 
 
+
 @media (min-width: 769px) {
 #menu {
   display: flex;
@@ -529,8 +807,18 @@ border: none;
   box-sizing: border-box;
 }
 
+
+
+  .container.show-top #menu,
+  .container.show-list #menu,
+  .container.show-detail #menu {
+    display: block; /* 全画面で表示 */
+  }
+
 .menu-items {
   flex-grow: 1; /* 間のスペースを占める */
+  display: flex;
+  flex-direction: column; /* 必要に応じて */
 }
 
 .copyright {
@@ -634,7 +922,7 @@ border: none;
 }
  .copyright {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 10px;
     font-size: 12px;
     color: #888;
     font-weight: 400;
@@ -760,6 +1048,13 @@ border: none;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.blog-wrap{
+  height: calc(100% - 100px);
+  margin-top: 50px;
+  padding-bottom: 10px;
+  gap: 0px;
+}
+
 .mobile-preview-image {
   width: 100%;
   height: 200px; 
@@ -768,5 +1063,50 @@ border: none;
   margin-bottom: 0px;
 }
 
+.blog-datetime {
+  position: fixed; /* scroll内で追従 */
+  top: 105px;        /* 上からの距離 */
+  right: calc(30px + 7%);      /* 右からの距離 */
+  text-align: right;
+  font-size: 14px;
+  
+  color: #d2d3ec;
+  z-index: 10;
+  float: right;
+
+}
+
+.blog-content p{
+  font-size: 15px;
+  letter-spacing: 0.05rem;
+
+}
+
+.blog{
+  padding:20px 7px;
+}
+
+.text-wrapper::before {
+
+  left: -5px;     
+  right: -5px;   
+
+
+
+
+}
+
+/* Topページ用 */
+.container.show-top #menu {
+    display: block; /* TOP表示時はメニューも表示 */
+  }
+
+  .container.show-list #menu {
+    display: none; /* カテゴリ表示時は非表示 */
+  }
+
+  .container.show-detail #menu {
+    display: none; /* 詳細表示時も非表示 */
+  }
 
 }

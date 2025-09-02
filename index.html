@@ -42,6 +42,7 @@
 
 
 <body>
+  
   <div class="container show-menu">
     <!-- ハンバーガーメニュー -->
 <button id="hamburger" class="hamburger">
@@ -49,11 +50,14 @@
 </button>
 
 <!-- スマホ用のメニュー -->
-<div id="mobile-menu" class="mobile-menu">
-  <div class="menu-item" onclick="showCategory('work')">work</div>
-  <div class="menu-item" onclick="showCategory('about')">about</div>
-  <div class="menu-item" onclick="showCategory('link_list')">link_list</div>
-  <div class="menu-item" onclick="showCategory('contact')">contact</div>
+<div id="mobile-menu" class="mobile-menu show-top-mobile">
+  <div class="menu-item top " onclick="showTop()">top</div>
+  <div class="menu-item mobile-menu-item" onclick="showCategory('work')">work</div>
+  <div class="menu-item mobile-menu-item" onclick="showCategory('about')">about</div>
+  <div class="menu-item mobile-menu-item" onclick="showCategory('link_list')">link_list</div>
+  <div class="menu-item mobile-menu-item" onclick="showCategory('contact')">contact</div>
+  <div class="mobile-kiritori"><p>--------＊--------</p></div>
+  <div class="menu-item mobile-menu-item" onclick="showCategory('blog')">blog</div>
 </div>
 
     <div class="panel left" id="menu">
@@ -63,10 +67,12 @@
       <div class="menu-item" onclick="showCategory('about')">about</div>
       <div class="menu-item" onclick="showCategory('link_list')">link_list</div>
       <div class="menu-item" onclick="showCategory('contact')">contact</div>
+      <div class="kiritori"><p>--------＊--------</p></div>
+      <div class="menu-item" onclick="showCategory('blog')">blog</div>
      </div>
      
 
-     <div class="news"><p>＜news＞</p><p>ここにお知らせを載せます。今は、職や仕事を探しています。</p></div>
+     <div class="news"><p>＜news＞</p><p>new! blogページを追加しました↑ new!</p></div>
 <div class="copyright">© 2025 オオタソラ</div>
 
     </div>
@@ -85,6 +91,7 @@
   <div id="history-bar"></div>
   
   <script src="contents.js"></script>
+  <script src="blog.js"></script>
   <script src="script.js"></script>
 
 </body>
