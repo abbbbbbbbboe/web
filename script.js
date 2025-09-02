@@ -3,7 +3,9 @@ let selectedDetailCategory = null;
 let selectedDetailIndex = null;
 
 
-
+// ===============================
+// 🔷 スマホアドレスバー計算
+// ===============================
 function setVh() {
   // innerHeightの1%を計算
   const vh = window.innerHeight * 0.01;
@@ -15,7 +17,7 @@ setVh();
 
 // リサイズや回転時にも更新
 window.addEventListener('resize', setVh);
-
+window.addEventListener('orientationchange', setVh);
 
 
 

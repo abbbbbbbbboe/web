@@ -1089,7 +1089,7 @@ border: none;
   padding:20px 7px;
 }
 .blog-wrap{
-  height: calc(var(--vh, 1vh) * 100 - 150px);
+  height: calc(var(--vh, 1vh) * 100 - 160px);
 
 }
 
