@@ -4,6 +4,19 @@ let selectedDetailIndex = null;
 
 
 
+function setVh() {
+  // innerHeightの1%を計算
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// 初回実行
+setVh();
+
+// リサイズや回転時にも更新
+window.addEventListener('resize', setVh);
+
+
 
 
 // ===============================

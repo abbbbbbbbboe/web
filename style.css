@@ -11,7 +11,7 @@ body, html {
 }
 
 body {
-  height: 100vh;
+ 
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -1088,14 +1088,16 @@ border: none;
 .blog{
   padding:20px 7px;
 }
+.blog-wrap{
+  height: calc(var(--vh, 1vh) * 100 - 150px);
+
+}
+
 
 .text-wrapper::before {
 
   left: -5px;     
   right: -5px;   
-
-
-
 
 }
 
