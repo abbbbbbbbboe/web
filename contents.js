@@ -4,6 +4,17 @@
 
 const contents = {
   work: [
+       {
+pagetitle: "evc-completion-card-01", 
+  title: "エクストリームVJ合宿 修了証",
+  details: "エクストリームVJ合宿 in FabCafe Nagoyaの修了証を作成しました。<br>参加者がエクストリームVJ合宿の情熱をいつでも思い出せるように心がけました。<br><br>I created the completion card for the Extreme VJ Camp at FabCafe Nagoya.<br>I designed it so that participants can always be reminded of the passion from the Extreme VJ Camp.",
+  images: ["workimag/evc-completion-card-01/card-w2.png", "workimag/evc-completion-card-01/card-w1.png", "workimag/evc-completion-card-01/evc-completion-card--2.jpg", "workimag/evc-completion-card-01/evc-completion-card--1.jpg"],
+  date: "2025",
+  category: "graphic design",
+  link: "https://fabcafe.com/jp/events/nagoya/2025-exvjcamp001/",
+  video: "https://www.youtube.com/embed/hO6SmFT_1Gk?autoplay=1&mute=1&loop=1&playlist=hO6SmFT_1Gk&modestbranding=1" 
+}
+, 
     {
   pagetitle: "rebootplan", 
   title: "スポーツデンキデパート「リブート計画」",
@@ -38,7 +49,7 @@ const contents = {
   pagetitle: "awainotameni", 
   title: "小林 玲衣奈 オンライン展示「あわいのために」",
   details: "2024年からweb上で開催している、小林 玲衣奈さんのオンライン展示「あわいのために」の告知用DMと展示サイトで使用したグラフィックデザイン、メインビジュアル等の作成。<br>オンライン上での展示なので、モニターの一般的な比率16:9をDMのサイズにした。単色の中の微妙な色の変化を用いて本展示のテーマである「今は無くなってしまった風景」ということをイメージできる柔らかい印象を持つような構成にした。表のグラフィックで用いている文章は作品の一節から印象的なものをそれぞれ抜き出して用いている。<br>DM情報<br>本線紙｜OKACカード_ましろ_354kg、インク｜表：DIC-442,裏：K、渡辺印刷（株）<br>令和5年度文化庁メディア芸術クリエイター育成支援事業採択<br><br>Graphic design, including the main visual, created for the promotional direct mail and exhibition website for Reina Kobayashi's online exhibition “For the In-Between,” which has been held online since 2024.<br>Since the exhibition is held online, the DM size was set to the standard monitor aspect ratio of 16:9. The design incorporates subtle color variations within a monochromatic palette to evoke the exhibition's theme of “landscapes that no longer exist,” creating a soft and evocative composition. The text used in the front-facing graphics is excerpted from memorable passages within the works themselves.<br>Project to Support Emerging Media Arts Creators adopted",
-  images: ["workimag/theinbetween/between1.jpg", "workimag/theinbetween/between2.jpg", "workimag/theinbetween/between3.jpg"],
+  images: ["workimag/theinbetween/between1.jpg", "workimag/theinbetween/between4.jpg","workimag/theinbetween/between2.jpg", "workimag/theinbetween/between3.jpg"],
   date: "2024",
   category: "graphic design",
   link: "https://www.kobayashireina.com/theinbetween"
