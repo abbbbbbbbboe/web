@@ -7,7 +7,8 @@ const contents = {
        {
 pagetitle: "evc-completion-card-01", 
   title: "エクストリームVJ合宿 修了証",
-  details: "エクストリームVJ合宿 in FabCafe Nagoyaの修了証を作成しました。<br>参加者がエクストリームVJ合宿の情熱をいつでも思い出せるように心がけました。<br><br>I created the completion card for the Extreme VJ Camp at FabCafe Nagoya.<br>I designed it so that participants can always be reminded of the passion from the Extreme VJ Camp.",
+  details: `エクストリームVJ合宿 in FabCafe Nagoyaの修了証を作成しました。<br>参加者がエクストリームVJ合宿の情熱をいつでも思い出せるように心がけました。
+  <br><br>I created the completion card for the Extreme VJ Camp at FabCafe Nagoya.<br>I designed it so that participants can always be reminded of the passion from the Extreme VJ Camp.<br><br>【お知らせ】<br>次回2025年10月11〜12日の合宿は<a href="https://see-sea.co.jp/school/29/" target="_blank">⭐︎こちら↗︎⭐︎</a>から予約できますので、ぜひ！`,
   images: ["workimag/evc-completion-card-01/card-w2.png", "workimag/evc-completion-card-01/card-w1.png", "workimag/evc-completion-card-01/evc-completion-card--2.jpg", "workimag/evc-completion-card-01/evc-completion-card--1.jpg"],
   date: "2025",
   category: "graphic design",
