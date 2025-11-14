@@ -7,7 +7,7 @@ const contents = {
     {
 pagetitle: "secretroom-discord", 
   title: "スポーツデンキデパート「密室ディスコード」",
-  details: `月面宇宙軍名義でスポーツデンキデパート「密室ディスコード」のMV用に車と道とビルのイラストレーションを描きました。<br><br>Under the name of the Lunar Space Force, I created illustrations of cars, roads, and buildings for the music video of the sports electronics department store “Closed Room Discord.”<br><br>【credit】<br>作詞.作曲.編曲; スポーツデンキデパート<br>ギター;RY<br>歌唱; 鏡音レン<br> イラスト; 月面宇宙軍 <br>映像.ロゴデザイン; 淳
+  details: `月面宇宙軍名義でスポーツデンキデパート「密室ディスコード」のMV用に車と道とビルのイラストレーションを描きました。<br><br>Under the name of Getsumenuchuugun, I created illustrations of cars, roads, and buildings for the music video of the sports electronics department store “Closed Room Discord.”<br><br>【credit】<br>作詞.作曲.編曲; スポーツデンキデパート<br>ギター;RY<br>歌唱; 鏡音レン<br> イラスト; 月面宇宙軍 <br>映像.ロゴデザイン; 淳
   `,
   images: ["workimag/secretroom-discord/secretroom-discord1.jpg", "workimag/secretroom-discord/secretroom-discord2.jpg", "workimag/secretroom-discord/secretroom-discord3.png", "workimag/secretroom-discord/secretroom-discord4.png"],
   date: "2025",
