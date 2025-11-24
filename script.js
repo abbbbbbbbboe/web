@@ -71,8 +71,24 @@ function showCategory(category, skipHistory = false) {
   // 🔹 about/contact/link_list の表示処理
   if (['about','contact','link_list'].includes(category)) {
     const item = contents[category][0];
-    let html = `<p>${item.title}</p><p>${item.details}</p>`;
+   
+  // タイトル表示ルール
+  // - モバイル: 全カテゴリで表示
+  // - PC: contact のときだけ表示
+  const showTitle =
+    window.innerWidth <= 768 || category === "contact";
 
+  let titleHTML = showTitle
+    ? `<p class="center-title">${item.title}</p>`
+    : "";
+
+  let html = `
+    ${titleHTML}
+    <p>${item.text}</p>
+    <p class="text-en">${item.text_en ? item.text_en : ""}</p>
+    <p class="exhibition">${item.exhibition ? item.exhibition : ""}</p>
+  `;
+  
     if (item.link) {
       html += `<p class="form"><a href="${item.link}" target="_blank" rel="noopener noreferrer">お問い合わせフォーム↗︎</a></p>`;
     }
@@ -272,16 +288,6 @@ function showDetails(category, index) {
   // 画像 & 動画リストHTML生成
 let mediaHTML = "";
 
-// 🎬 動画（画像と同じ並びで追加）
-if (detail.video) {
-  mediaHTML += `
-    <div class="detail-video-wrapper detail-image-large">
-      <iframe src="${detail.video}" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>`;
-}
-
 // 画像
 if (detail.images && detail.images.length > 0) {
   mediaHTML += detail.images.map((src, idx) => {
@@ -289,6 +295,24 @@ if (detail.images && detail.images.length > 0) {
     return `<img src="${src}" class="${className}">`;
   }).join('');
 }
+
+// 🎬 動画（画像と同じ並びで追加）
+// video が1つでも複数でも対応
+if (detail.video) {
+  // 配列ではなかったら配列に変換
+  const videos = Array.isArray(detail.video) ? detail.video : [detail.video];
+
+  videos.forEach(videoUrl => {
+    mediaHTML += `
+      <div class="detail-video-wrapper detail-image-large">
+        <iframe src="${videoUrl}" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>`;
+  });
+}
+
+
 
 
 
@@ -298,14 +322,33 @@ detailDiv.innerHTML = `
   <p class="detail-meta">
     ${detail.date ? `<span class="detail-date">${detail.date}</span><br>` : ''}
     ${detail.category ? `<span class="detail-category">${detail.category}</span><br><br>` : ''}
-    ${detail.link ? `<span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
+    ${detail.link
+  ? `<span class="detail-link">
+       <a href="${Array.isArray(detail.link) ? detail.link[0] : detail.link}" target="_blank">
+         ↗︎${Array.isArray(detail.link) ? detail.link[0] : detail.link}↗︎
+       </a>
+     </span><br>`
+  : ''
+}
+
   </p>
   
   <div class="detail-images">${mediaHTML}</div>
   <p class="detail-description">
-    ${detail.details}<br><br>
-    ${detail.link ? `<span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>` : ''}
-   </p>
+    ${detail.text ? detail.text + "<br><br>" : ""}
+   ${detail.text_en ? detail.text_en + "<br><br>" : ""}
+   ${detail.credit ? "【credit】" + "<br>" + detail.credit + "<br><br>" : ""}
+   ${detail.news ? "【news】" + "<br>" + detail.news + "<br><br>" : ""}
+    ${detail.link
+  ? (Array.isArray(detail.link)
+      ? detail.link.map(url =>
+          `<span class="detail-link"><a href="${url}" target="_blank">↗︎${url}↗︎</a></span><br>`
+        ).join("")
+      : `<span class="detail-link"><a href="${detail.link}" target="_blank">↗︎${detail.link}↗︎</a></span><br>`
+    )
+  : ""
+}
+ </p>
   ${window.innerWidth <= 768 ? `<button class="back-to-list">back to work list↩︎</button>` : ''}
 `;
 

@@ -116,6 +116,12 @@ a{
   font-style: normal;
   margin-bottom: 18px;
   line-height: 1.7;
+  margin-top: 40px;
+}
+
+.center-title{
+  margin-top: 10px !important;
+  margin-bottom: 0px !important;
 }
 
 .menu-item, .content-item {
