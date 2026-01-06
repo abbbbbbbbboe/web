@@ -91,7 +91,8 @@ transform: scale(1, 0.8);
   cursor: pointer;
   padding: 5px 10px;
   text-decoration: none;
- 
+   cursor: url(./link1.png),
+    auto;
 }
 
 .sub{

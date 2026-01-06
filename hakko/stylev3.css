@@ -1,14 +1,14 @@
 body {
   height: 100vh;
-  background-image: url(https://cdn.glitch.global/7a008120-558d-41bd-b1ef-defc49792ce2/bgv3_4.png?v=1735721022295);
+  background-image: url(./bgv3_4.png);
   background-repeat: repeat;
   background-size: 4px;
-  cursor: url(https://cdn.glitch.global/7a008120-558d-41bd-b1ef-defc49792ce2/cursor6.png?v=1735721151081), auto;
+  cursor: url(./cursor6.png), auto;
   width: auto;
   background-attachment: fixed;
   margin: 0;
 }
-/*  <div class="">の""内で指定した名前に.を頭につけて使う（classの場合）*/
+
 .atama{
   margin-top:30px;
 }
@@ -47,6 +47,8 @@ body {
   margin-left: 19px;
   color: #dd6d00;
   transform: scale(1, 0.8);
+  
+
 }
 
 /*  */
@@ -65,7 +67,7 @@ body {
   height: 8px;
   border: none;
   margin-left: 4px;
-  cursor: url(https://cdn.glitch.global/7a008120-558d-41bd-b1ef-defc49792ce2/link2.png?v=1705997307235),
+  cursor: url(./link2.png),
     auto;
   padding: 5px 10px;
   text-decoration: none;
@@ -76,7 +78,7 @@ body {
   height: 8px;
   border: none;
   margin-left: 4px;
-  cursor: url(https://cdn.glitch.global/7a008120-558d-41bd-b1ef-defc49792ce2/link1.png?v=1705997175194),
+  cursor: url(./link1.png),
     auto;
   padding: 5px 10px;
   text-decoration: none;
@@ -91,6 +93,9 @@ body {
   cursor: pointer;
   padding: 5px 10px;
   text-decoration: none;
+    cursor: url(./link1.png),
+    auto;
+  
 }
 
 .sub {
@@ -123,11 +128,11 @@ body {
   width: 90vw;
   height: auto;
 
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 40px;
 /*   font-family: "Zen Kaku Gothic New", sans-serif; */
   font-family: "Open Sans", sans-serif;
-  font-weight:bold;
+  font-weight:600;
 }
 
 .text p:hover {
