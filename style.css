@@ -97,6 +97,10 @@ a{
   line-height: 1.7;
 }
 
+.news a{
+  color: #777777;
+}
+
 .center {
   width: 30%;
   background-image: url("imag/center2.png");
@@ -335,6 +339,10 @@ border-color: #474747 #474747 #474747 #474747; /* 色 */
   margin-top:28px;
   line-height: 28px;
   letter-spacing: 0.1rem;
+}
+
+.blog-content p.memotext{
+  margin-bottom: 84px;
 }
 
 .blog-content h1{
@@ -939,6 +947,8 @@ border: none;
   padding: 10px 10px;
   line-height: 1.7;
 }
+
+
  .copyright {
     text-align: center;
     margin-top: 10px;

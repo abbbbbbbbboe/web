@@ -271,7 +271,7 @@ pagetitle: "tau-joshuten2023",
       { title: "coolsites↗︎", url: "https://docs.google.com/spreadsheets/d/10ZJ9bJ5F4-DTiFKvOSk1olLY0ak6LCjYapp4uXynpjY/edit?usp=sharing" },
       { title: "Tシャツ↗︎", url: "https://suzuri.jp/ota_sora/" },
       { title: "音楽チーム 作業用BGM↗︎", url: "https://www.youtube.com/@bgm1207" },
-      { title: "ゲイジュツチーム ニセテクスチャ↗︎", url: "https://www.youtube.com/@nisetexture" },
+      { title: "ニセテクスチャ（メディア・チーム）↗︎", url: "https://nisetexture.com/" },
       { title: "analog clock↗︎", url: "https://www.poulsoffice.com/" },
       { title: "digital clock↗︎", url: "https://tokyotypedirectorsclub.org/" }
     ]
