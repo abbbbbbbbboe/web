@@ -338,7 +338,7 @@ border-color: #474747 #474747 #474747 #474747; /* 色 */
   font-size: 16px;
   margin-top:28px;
   line-height: 28px;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.15rem;
 }
 
 .blog-content p.memotext{
@@ -1108,7 +1108,7 @@ border: none;
 }
 
 .blog-content p{
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0.05rem;
 
 }

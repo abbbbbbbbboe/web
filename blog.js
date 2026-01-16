@@ -1,10 +1,41 @@
 // blog.js
 //テキストは<div class="text-wrapper">で囲む
-//画像はそのままimgタグで良い
+//画像はそのままimgタグで良い。<div class="text-wrapper">からは外す
 //埋め込み映像は<div class="blog-video-wrapper">で囲む
 //一番最後に<br>で行の追加を忘れない
 //aタグー<a href="https://otasora.website" target="_blank">　</a>
 const blogContents = [
+      {
+    pagetitle: "blog-260116",
+    title: "coolsitesについて",
+    date: "2026/01/16",
+    category: "about coolsites",
+    content: `
+     
+     <a href="https://docs.google.com/spreadsheets/d/10ZJ9bJ5F4-DTiFKvOSk1olLY0ak6LCjYapp4uXynpjY/edit?usp=sharing" target="_blank"><img src="blog/coolsites/1_1000_1.png" /></a>
+     <div class="text-wrapper"> 
+     <p><a href="https://docs.google.com/spreadsheets/d/10ZJ9bJ5F4-DTiFKvOSk1olLY0ak6LCjYapp4uXynpjY/edit?usp=sharing" target="_blank">coolsites↗︎</a></p>
+     <p>
+     <a href="https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13270758388" target="_blank">ネットサーフィン</a>をしていて、coolなサイトを見つけたら<a href="https://business.ntt-east.co.jp/bizdrive/word/bookmark.html" target="_blank">ブックマーク</a>（以下、BM）をする。BMしたページはこのcoolsitesというタイトルの<a href="https://workspace.google.com/intl/ja/products/sheets/" target="_blank">スプレッドシート</a>のリストに追加されるようにしている。
+     </p>
+      <p>
+     初めはGAS（<a href="https://developers.google.com/apps-script/overview?hl=ja" target="_blank">Google Apps Script</a>）を使ってみたいなと思って、<a href="https://chatgpt.com/ja-JP/overview?openaicom_referred=true" target="_blank">chatGPT</a>を頼ってBMをスプレッドシートに反映させるものを作ってみた。<br>
+     ChromeでBMしたページがスプレッドシートに<a href="https://developer.mozilla.org/ja/docs/Glossary/Favicon" target="_blank">ファビコン</a>の画像・title・URL・BMした日時が自動で記載されるようにしている。基本的には自分が管理しやすくするために始めたことだけど、スプレッドシートにまとめるなら他の人にも共有しようと思って公開している。
+     </p>
+      <p>
+     coolだと思ったwebサイトを適当にBMしているので一貫性がある訳ではないけど、まだ何かを見出すには少なすぎる。<br>
+     一旦整理するために、サイトのデザイナーとデベロッパー／コーダーをネットサーフィンの範囲内で調べて掲載した。多分この人が作ったものだと思うけど、明言されてないものは書かないようにしている。勝手に載せているので、もしも載せてほしくない方がいらっしゃいましたらお教えください。<br>
+     デザイナーやデベロッパー／コーダーを調べるのは面白い。当たり前だけど、規模が大きいものほどデザイナーとデベロッパー／コーダーは別の人がやっていて、個人サイトはどちらも同じ人が担当していることが多い。調べる中で関連して他のwebサイトや制作物が<a href="https://www.irasutoya.com/2013/07/blog-post_8147.html" target="_blank">芋づる式</a>に湧き出てきてリストもまた増えていってしまう。適当にBMして後から掘り下げることで自分の頭の中も整理されていくように感じる。
+     </p>
+      <p>
+     全てのデザイナーやデベロッパー／コーダーを記載すれば良いということでもないのですが、記入できていない部分についてもしもご存じの方がいらっしゃいましたらご教授ください。会った時でも良いですし、DMや<a href="https://forms.gle/17ErUsJnvgpZaqVM9" target="_blank">formでも</a>大丈夫です。同時に間違いや削除等々ありましたらご連絡ください。<br>
+     よろしくお願いいたします。<"⭐︎_⭐︎">
+     </p>
+     <br>
+</div>
+   
+`
+  },
      {
     pagetitle: "blog-260109",
     title: "発光！メモまとめ2025",
@@ -325,7 +356,7 @@ const blogContents = [
      </p>
      </div>
 
-     <img src="blog/1-1.png" />
+     <img src="blog/aboutThisSite/1-1.png" />
      <div class="text-wrapper">
      <p>
      そのドットの密度で色の濃淡がベースの色との組み合わせで各所の色に展開している。

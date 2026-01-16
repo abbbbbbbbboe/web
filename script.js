@@ -416,7 +416,7 @@ function showBlogDetails(index) {
   <div class="blog-datetime" id="blog-datetime"></div>
         
   <div class="blog-text">
-    <p class="blog-title">〰️${detail.title}〰️</p>
+    <p class="blog-title">〰️&thinsp;${detail.title}&thinsp;〰️</p>
     <p class="blog-meta">
       ${detail.date ? `<span class="blog-date">${detail.date}</span><br>` : ''}
       ${detail.category ? `<span class="blog-category">＊${detail.category}＊</span><br><br>` : ''}
