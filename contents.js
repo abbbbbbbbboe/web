@@ -5,6 +5,29 @@
 const contents = {
   work: [
     {
+pagetitle: "nisetexture-rogo-web", 
+  title: "ニセテクスチャrogo&website",
+  text: `ニセテクスチャ（メディア・チーム）のロゴとwebサイトを作成しました。<br>
+ロゴは3Dプリントと粘土で作り、アナログな質感で立体的なロゴになりました。<br>
+webサイトは活動のアーカイブと定期的なブログの更新ができるように設計しました。デザインについては当サイトのブログページの「<a href="/#blog/blog-260120" target="_blank">nisetexture.comについて</a>」に記載しております。よろしければご覧ください。<br>
+試みとして、webサイトに掲載するテキスト広告も募集しています。詳しくは<a href="https://nisetexture.com/blog/#000" target="_blank">こちら↗︎</a>
+`,
+  text_en:`I created the logo and website for Nisetexture (media-team).<br>
+The logo was made using 3D printing and clay, resulting in a three-dimensional logo with an analog, tactile texture.<br>
+The website was designed to serve as an archive of activities and to allow for regular blog updates.
+Details about the design are described in the blog post “<a href="/#blog/blog-260120" target="_blank">About nisetexture.com</a>” on this website. Please take a look if you’re interested.<br>
+As an experimental initiative, we are also accepting text advertisements to be posted on the website. Learn more <a href="https://nisetexture.com/blog/#000" target="_blank">here ↗︎</a>
+  `,
+  credit:``,
+  news:``,
+  images: ["workimag/nisetexture-rogo-web/rogo.webp", "workimag/nisetexture-rogo-web/1.webp", "workimag/nisetexture-rogo-web/2.webp", "workimag/nisetexture-rogo-web/3.webp", "workimag/nisetexture-rogo-web/4.webp"],
+  date: "2025",
+  category: "rogo/webdesign",
+  link: "https://nisetexture.com/",
+  video: "" 
+}
+, 
+    {
 pagetitle: "secretroom-discord", 
   title: "スポーツデンキデパート「密室ディスコード」",
   text: `月面宇宙軍名義でスポーツデンキデパート「密室ディスコード」のMV用に車と道とビルのイラストレーションを描きました。`,

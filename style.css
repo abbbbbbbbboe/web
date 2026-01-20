@@ -349,6 +349,7 @@ border-color: #474747 #474747 #474747 #474747; /* 色 */
   font-size: 18px;
   font-weight: 200;
   margin-top: 56px;
+  /* margin-bottom: 56px; */
   line-height: 28px;
   color:#4848b7;
 }
@@ -358,6 +359,33 @@ border-color: #474747 #474747 #474747 #474747; /* 色 */
   margin-top: 28px;
   line-height: 28px;
   color:#505095;
+}
+
+.blog-content h3{
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 28px;
+  margin-bottom: -28px;
+  line-height: 28px;
+  color:#505095;
+}
+
+.blog-content .caption{
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  line-height: 28px;
+  color:#474747;
+  /* text-decoration:underline; */
+    /* text-decoration-color: #d2d3ec; */
+    margin-left: 30px;
+  transform: scale(1,0.9);
+ 
+}
+
+.blog-content .spacer{
+  height: 28px;
 }
 
 .blog-title{
@@ -380,7 +408,7 @@ font-weight: 500;
 }
 
 hr.blog-hr2{
-  height:12px;
+  height:6px;
   border-style:none ; 
 background-image:url(imag/blog-hr3.png);
 margin-top:20px;
@@ -421,7 +449,8 @@ margin-bottom: 13px;
 
 .blog-text img{
   width: 90%;
-  margin: 10px 0 0px 10px;
+  margin: 10px auto 0px auto;
+  display: block;
 }
 
 .blog-text a{

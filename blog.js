@@ -5,6 +5,109 @@
 //一番最後に<br>で行の追加を忘れない
 //aタグー<a href="https://otasora.website" target="_blank">　</a>
 const blogContents = [
+        {
+    pagetitle: "blog-260120",
+    title: "nisetexture.comについて",
+    date: "2026/01/20",
+    category: "about nisetexture.com",
+    content: `
+     <div class="text-wrapper"> 
+     <p>2年くらい前からやっている<a href="https://nisetexture.com/" target="_blank">ニセテクスチャ</a>というチームのwebサイトを作った。
+活動内容などについては実際にwebサイトを見てください。
+</p>
+     <p>
+     今回作ったニセテクスチャのwebサイトについて簡単に書いていく。
+     </p>
+      
+
+      </div>
+     <hr class="blog-hr2">
+     <div class="text-wrapper"> 
+        <h1>
+     〰 nisetexture.comについて 〰
+     </h1>
+     <p>
+     デザインは当初、ボーダーの<a href="https://developer.mozilla.org/ja/docs/Web/CSS/Guides/Grid_layout/Basic_concepts" target="_blank">グリッド</a>を用いてその間に要素や文字が入るという形にすることと、カーソルの位置でフレームが切り替わる<a href="https://gdr.jagda.or.jp/articles/62/" target="_blank">コマドリ</a>のロゴというアイデアがあった。この二つのアイデアを軸として作成を始めた。
+     </p>
+     <div class="spacer"></div>
+     <h2>ボーダーグリッドについて</h2>
+     <p>等幅のボーダーのグリッドを一つの単位にすることで、サイト内の情報を等価に扱えるのではないかと考えた。このサイトの役割はチームの活動内容の<a href="https://dictionary.sanseido-publ.co.jp/column/%E7%AC%AC16%E5%9B%9E-%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96" target="_blank">アーカイブ</a>なので、淡々とした構成になるように意識した。</p>
+     <p>そもそもボーダー状の画面構成を思いついたのは、<a href="https://www.pasoconongaku.club/" target="_blank">パソコン音楽クラブの3年前に新調されたwebサイト</a>を見て画面のきれいさに心打たれた時だ。このwebサイトは<a href="https://developer.mozilla.org/ja/docs/Web/CSS/Reference/Properties/font-family" target="_blank">font-family</a>・<a href="https://developer.mozilla.org/ja/docs/Web/CSS/Reference/Properties/line-height" target="_blank">line-hight</a>・<a href="https://developer.mozilla.org/ja/docs/Web/CSS/Reference/Properties/font-size" target="_blank">font-size</a>・<a href="https://developer.mozilla.org/ja/docs/Web/CSS/Reference/Properties/letter-spacing" target="_blank">letter-spacing</a>をwebサイトの閲覧者が設定できるようになっている。しかし、私はそのギミックよりもindexの淡々とした羅列の気持ちよさに心打たれた。サイト全体の淡々とした感じもそのギミックを強調するためのものだったのかもしれないが、抑制によって作られた画面の美しさは私の中に今もはっきりとある。<br>
+     こんなに美しく気持ちのいいサイトになったのかはわからないが、淡々とした画面作りにはなったと思う。
+     </p>
+     <p>ボーダー状に画面を構成する中で、スクロールをこの構成に合ったものにする必要があった。ヘッダーの部分は固定にするので下のコンテンツ部分が自由にスクロールできてしまうとグリッドの辻褄が合わなくなる。強引ではあるけれど、スクロールをグリッドの高さに合わせて丸めることでステップするようにした。これによって画面のボーダーが崩れずに済んだ。あまり見かけないスクロールの操作感だと思う。特にマウスホイールでスクロールすることでカタカタカとホイールの回転とリンクしてアナログな操作に感じるかもしれない。テキストを読むにはちょうどいいのかもと思ったりする。<br>
+     スクロールの<a href="https://imimatome.com/katakanagonoimi/katakana55.html" target="_blank">ギミック</a>ありきではなく、画面構成のグリッドからこのギミックを思いついたのは作る手順として良かったと思う。
+     </p>
+<div class="spacer"></div>
+     <h2>コマドリのロゴについて</h2>
+     </div>
+     <img src="blog/aboutNisetextureWebsite/rogo.webp" />
+    <p class="caption">↑ロゴ　CGモデルプロトタイプ</p>
+    <img src="blog/aboutNisetextureWebsite/rogo-1.webp" />
+    <p class="caption">↑ロゴの骨組み</p>
+    <img src="blog/aboutNisetextureWebsite/rogo-2.webp" />
+    <p class="caption">↑ロゴの塗装（下地）</p>
+    <img src="blog/aboutNisetextureWebsite/rogo-3.webp" />
+    <p class="caption">↑ロゴの塗装</p>
+    <img src="blog/aboutNisetextureWebsite/rogo-4.webp" />
+    <p class="caption">↑ロゴの撮影</p>
+     <div class="text-wrapper"> 
+     <p>PC版では最初の画面にあるロゴの画像はカーソルの動きに追従するように向きが変わる。<br>
+     明確に参考にしたものはないが、3Dモデルを配置してカーソルの位置に追従して変化するものを想定して作った。<a href="https://www.zoom-japan.com/" target="_blank">ZOOM —日本発のコンテンポラリーデザインペン</a>や<a href="https://yoshito-illustration.com/" target="_blank">Yoshito Illustration Portfolio</a>がわかりやすい。こういった感じの<a href="https://threejs.org/" target="_blank">three.js</a>的な手触りに対する「ニセ」として、実際に立体で作ったロゴをコマドリすることで実装している。ロゴ自体は3Dプリンターで骨組みを作りその周りに粘土をつけ、銀の塗装をしている。それを角度ごとにカメラを移動して撮影した画像を用いている。<br>
+     ロゴはこのギミックを先行させて作成した。その中で3D的な見た目を意識しつつ、「ニセ」になるように銀色の塗装や粘土の荒さなどを残している。（コンピュータの画面がそもそもシミュレーションであることは意識しつつ。）
+     </p>
+     <p>「<a href="https://www.kai-group.com/global/design/" target="_blank">貝印のデザイン｜KAI DESIGN Dept.</a>」<br>
+     ギミックについて例えば、このサイトはスクロールでvideoのシーケンスを送っている。つまり、スクロールをきっかけにして映像内の商品を回転させているように見せている。3Dモデル的な立体の情報はサイトの中にはなくて映像（＝画像を切り替えること）で立体感を演出している。硬派にやりすぎなくらいやっているのですごい。画像だと枚数が多くなるとどうしても重くなるのでvideoを使えばいいのかとも思った。<br>
+     しかし、ニセテクスチャのサイトはあくまでもthree.js的な手触りに対する「ニセ」として実装したので、フレームレートを意図的に制限した。文字ごとに切り替わるタイミングを変えることで、画面内でよく動いて見えるような工夫も行った。
+     </p>
+     <div class="spacer"></div>
+     <h2>まとめ</h2>
+     <p>最終的にスクロールやコマドリのロゴはwebサイトの動作のフレームレートを下げる感触を作ったと思う。制作過程で他のwebサイトを閲覧した際に画面の滑らかさが過剰に感じた。<br>もちろん全てに言える訳ではないけれど、インタラクションのアニメーションの滑らかさ（これは二種類あって、カーソルの位置やスクロールといった連続的な入力によるアニメーションとクリックなどのきっかけによって起こるアニメーション。）や挿入される映像や画像・コードベースのアニメーションといったフィックスした要素の滑らかさなどが同じ方向に向かっているようで面白くないのでは？と思ってしまう。<br>その面でこのサイトのアイデンティティの一つに”滑らかじゃなさ“があると思う。スクロールのステップについては使いづらさがあるので、スクロールトップボタンやテキストのセクションに飛ぶことができるような工夫をした。それでまだ完全に補えているとは思わないけど…。個人サイトなので閲覧者の<a href="https://ja.wikipedia.org/wiki/%E9%A6%B4%E5%8C%96" target="_blank">慣れ</a>も強要します！</p>
+         </div>
+     <hr class="blog-hr2">
+     <div class="text-wrapper"> 
+<div class="spacer"></div>
+     <h2>いくつか細かい部分のメモ</h2>
+     <h3>要素の同列化　title-image-text</h3>
+     <p>タイトルとイメージとテキストを同列の要素として横並びになるように設計した。それぞれの要素を作品や活動にとって等価になるようにしたかったからだ。ニセテクスチャの作品や活動を画像をメインにして表示するのはなんだか違う気がする。イメージ優位なネット空間において同等にタイトルとテキストも扱われるべきだと思っている。<br>
+また、見やすさという部分でも合理的な構造なのではないかと考えている。1ページで画像の下にテキストがあるような構成（その逆も）は資料を見る時に煩雑に感じてしまうので、それを避けるようにした。（画像とテキストを縦に並べるのは私のこのサイトもそうなっているし、スタンダードな構成ではある。）<br>
+モバイル版ではそれぞれのページを行き来する形で同列に閲覧できるようにしている。ニセテ通信では見やすさを優先して、テキストとイメージを同じページに適当な順番に並べている。
+
+     </p>
+     <h3>random-letter-spacing</h3>
+     <p>ヘッダーのメニューやタイトルの各文字のletter-spacingがランダムの数値で挿入されるようにしている。
+     文字の字間を崩すことはわかりやすく画面を「ニセ」にすることができると思う。ただ、今回はチキってそんなに大きく崩せなかった。
+     </p>
+     <h3>リンクデータベース</h3>
+     <p>前からやってみたかったので、ニセテ通信では記事内のリンクを自動的につけるようにした。単語とリンクを配列で記述して、各コンテンツが生成されるタイミングで指定した単語があればリンクが付くようになっている。これから増えていくと何か不具合が出るかもしれないが、とりあえず運用してみる。単語とリンクについてはチーム内でスプレッドシートでまとめて、その後手動でJSに追加している。</p>
+     <h3>コンペ不採用の掲載について</h3>
+     <p>webサイトにはこれまでの活動をアーカイブとして載せている。コンペの不採用の内容を載せているが、<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%9A%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3" target="_blank">コンペ</a>に応募したことそのものは間違いなく活動なので載せている。アーカイブはやったことを逐一載せていく方がいいと考える。特に活動としてチームをやっていくのであれば行ったことは載せていくべきだ。そのためにworkとかではなくarchiveというメニュー名にした。なので、不採用の内容を参考にするとかは勝手にやってもらえばいいと思う。けど、参考にならないと思う。そもそも参考にするための実績がない。<br>
+     これに関しては、私はオープンにして共有するという考えではなく自分たちの活動を内容や結果に関係なく淡々と記述していく行為なのだと思う。
+     </p>
+     <div class="spacer"></div>
+
+     <h2>最後に</h2>
+     <p>サイトのデザインと関係ないですが、ニセテ通信の「<a href="https://nisetexture.com/blog/#001" target="_blank">私たちの活動について</a>」というテキストと音声は色々とこねくり回して作ったので読んだり聴いたりしてください。その後に説明音声も聴いて欲しいです。説明音声の再生回数が少ないので、そこまで聴いてもらえていないのかもと思いますが、できれば説明音声も聴いてもらえるとありがたいです。どうぞよろしくお願いいたします。 m(_ _)m
+     </p>
+     <div class="spacer"></div>
+        </div>
+     <hr class="blog-hr2">
+     <div class="text-wrapper"> 
+     <h2>⭐︎Tシャツの宣伝⭐︎</h2>
+   
+ </div>
+     <a href="https://suzuri.jp/ota_sora/sections/24389" target="_blank"><img src="blog/aboutNisetextureWebsite/tshirt.webp" /></a>
+     <div class="text-wrapper"> 
+     
+   <p>
+   
+   <a href="https://suzuri.jp/ota_sora/sections/24389" target="_blank">nisetexture new T-shirt↗︎</a><br>
+     ロゴとwebサイトの新調を記念してrogoを大胆にあしらったTシャツを作成しました！よろしければご購入ください！QRコードがついているのですぐにいつでもwebサイトにアクセスできます。
+     </p>
+     <br>
+</div>
+`
+  },
       {
     pagetitle: "blog-260116",
     title: "coolsitesについて",
@@ -33,7 +136,6 @@ const blogContents = [
      </p>
      <br>
 </div>
-   
 `
   },
      {
