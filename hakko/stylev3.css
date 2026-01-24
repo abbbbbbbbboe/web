@@ -1,12 +1,16 @@
 body {
-  height: 100vh;
-  background-image: url(./bgv3_4.png);
+  height: 100dvh;
+  background-image: url(./img/3/bgv3_4.png);
   background-repeat: repeat;
   background-size: 4px;
-  cursor: url(./cursor6.png), auto;
+  cursor: url(./img/3/cursor6.png), auto;
   width: auto;
   background-attachment: fixed;
   margin: 0;
+}
+
+.bg-wrapper{
+  display: none;
 }
 
 .atama{
@@ -51,52 +55,7 @@ body {
 
 }
 
-/*  */
-.cssbutton {
-  width: 100px;
-  height: 20px;
-  position: fixed;
-  top: 44px;
 
-  right: 0;
-}
-
-#setButton1 {
-  background-color: #2d5ae0;
-  width: 10px;
-  height: 8px;
-  border: none;
-  margin-left: 4px;
-  cursor: url(./link2.png),
-    auto;
-  padding: 5px 10px;
-  text-decoration: none;
-}
-#setButton2 {
-  background-color: #707070;
-  width: 10px;
-  height: 8px;
-  border: none;
-  margin-left: 4px;
-  cursor: url(./link1.png),
-    auto;
-  padding: 5px 10px;
-  text-decoration: none;
-}
-
-#setButton3 {
-  background-color: #dd6d00;
-  width: 10px;
-  height: 8px;
-  border: none;
-  margin-left: 4px;
-  cursor: pointer;
-  padding: 5px 10px;
-  text-decoration: none;
-    cursor: url(./link1.png),
-    auto;
-  
-}
 
 .sub {
   margin-top: 5px;
@@ -206,15 +165,6 @@ footer hr {
 
 @media screen and (max-width: 959px) {
   /* 959px以下に適用されるCSS（タブレット用） */
-  .cssbutton {
-    width: 100px;
-    height: 20px;
-    position: fixed;
-    top: 25px;
-
-    right: 0;
-  }
-
   .text p {
    color: #cc6600; /* ← 修正 */
     font-size: 16px;

@@ -1,0 +1,108 @@
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;   /* ← 好きな大きさ */
+  height: 200px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  opacity: 0;
+}
+
+
+/* memolink 用 */
+body.cursor-memo #custom-cursor {
+  opacity: 1;
+  background: url("./img/memolink.png") center / contain no-repeat;
+}
+
+/* otasoraWeb 用 */
+body.cursor-otasora #custom-cursor {
+  opacity: 1;
+  background: url("./img/otasoraweb.png") center / contain no-repeat;
+}
+
+/* hover中は本物カーソルを消す */
+body.cursor-memo,
+body.cursor-memo * ,
+body.cursor-otasora,
+body.cursor-otasora * {
+  cursor: none !important;
+}
+.setButton{
+ 
+  width: 10px;
+  height: 8px;
+  border: none;
+  margin-left: 4px;
+    padding: 5px 10px;
+  text-decoration: none;
+}
+#setButton1 {
+   background-color: #2d5ae0;
+  cursor: url(./img/1/cssbutton1.png),auto;
+}
+#setButton2 {
+  background-color: #707070;
+cursor: url(./img/2/cssbutton2.png), auto;
+}
+
+#setButton3 {
+  background-color: #dd6d00;
+cursor: url(./img/3/cssbutton3.png),auto;
+  
+}
+
+#setButton4 {
+  background: linear-gradient(to right, rgb(0, 0, 0), rgb(255, 255, 255));
+    cursor: url(./img/4/cssbutton4.png),auto;
+  
+}
+/*  */
+.cssbutton {
+  width: 100px;
+
+  position: fixed;
+  top: 30px;
+
+  right: 0;
+}
+
+
+@media screen and (max-width: 959px) {
+  /* 959px以下に適用されるCSS（タブレット用） */
+input[type="button"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+  .setButton{
+ 
+  width: 10px;
+  height: 10px;
+  border: none;
+  margin-left: 4px;
+    padding: 6px 10px;
+  text-decoration: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+
+}
+  .cssbutton {
+    width: 40px;
+   height: auto;
+    position: fixed;
+    top: 30px;
+
+    right: 0;
+   
+  }
+form{
+ display: flex;
+  flex-direction: column;
+    gap: 15px;
+}
+
+
+
+}

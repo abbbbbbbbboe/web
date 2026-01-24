@@ -15,7 +15,9 @@ body {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-
+.bg-wrapper{
+  display: none;
+}
 a{
   word-break: break-all;
 }
