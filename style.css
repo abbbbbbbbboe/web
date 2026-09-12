@@ -183,7 +183,7 @@ small{
 .content-item.active {
   background-color: #f9fbfc;
   background-image: url("imag/3.png");
-  border: 4px solid #f9fbfc;
+  border: 3px solid #f9fbfc;
 }
 
 
@@ -772,7 +772,7 @@ border: none;
   display: none;
   flex-direction: column;
   font-size: 16px;
-  border: 4px solid #d9daef;
+  border: 3px solid #d9daef;
   margin-bottom: 10px;
   padding: 45px 0.5rem;
   background-image: url("imag/center1.png");
@@ -998,7 +998,7 @@ border: none;
 .menu-item{
   padding:10px;
   font-size: 20px;
-  border: 4px solid #d4d4d4;
+  border: 3px solid #d4d4d4;
 }
 
   .container.show-menu .left {
