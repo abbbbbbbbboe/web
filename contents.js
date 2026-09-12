@@ -5,6 +5,32 @@
 const contents = {
   work: [
     {
+      pagetitle: "tectonics-for-video-logo",
+      title: "tectonics for video logo&名刺",
+      text: `門田健嗣さんの主宰するtectonics for video(TV)のロゴデザインと名刺のデザインを行いました。<br>TVは映像と立体の共生をテーマにデザインを行う事務所です。映像の16:9のアスペクト比率を軸に造形を行いました。ロゴ／名刺ともに16:9の比率になっています。カラーはRGBの赤・青・緑を用いています。<br>名刺は裏面を光沢加工にし、モニターの画面を想起させるようにしました。`,
+      text_en: `I designed the logo and business cards for “tectonics for video (TV),” a studio headed by Kenji Kadota. <br> TV is a design studio focused on the symbiosis of video and three-dimensional forms. The design is based on the 16:9 aspect ratio of video. Both the logo and business cards feature a 16:9 aspect ratio. The colors used are RGB red, blue, and green. <br>The back of the business card features a glossy finish designed to evoke the image of a monitor screen.`,
+
+      images: ["workimag/tectonics-for-video-logo/web-01.webp", "workimag/tectonics-for-video-logo/web-02.webp", "workimag/tectonics-for-video-logo/web-03.webp", "workimag/tectonics-for-video-logo/web-04.webp", "workimag/tectonics-for-video-logo/web-05.webp", "workimag/tectonics-for-video-logo/web-06.webp"],
+      date: "2026",
+      category: "graphic design",
+      link: "https://tectonicsforvideo.com/",
+      video: ""
+    }
+    ,
+    {
+      pagetitle: "evc-completion-card-03",
+      title: "エクストリームVJ合宿 in FabCafe Nagoya 2026 修了証",
+      text: `エクストリームVJ合宿 in FabCafe Nagoya 2026の修了証を作成しました。`,
+      text_en: `I created the completion card for the Extreme VJ Camp in FabCafe Nagoya 2026.`,
+
+      images: ["workimag/evc-completion-card-03/card-w1.webp", "workimag/evc-completion-card-03/card-w2.webp", "workimag/evc-completion-card-03/card-w3.webp"],
+      date: "2026",
+      category: "graphic design",
+      link: "https://fabcafe.com/jp/events/nagoya/2026-exvjcamp/",
+      video: ""
+    }
+    ,
+    {
       pagetitle: "evc-completion-card-02",
       title: "エクストリームVJ合宿 at Creative Center Osaka 修了証",
       text: `エクストリームVJ合宿 at Creative Center Osakaの修了証を作成しました。<br>今回はエクストリームVJ合宿 in FabCafe Nagoyaの修了証のデザインを踏襲しつつ、メインビジュアルを背景に用いて作成しました。`,
